@@ -1,0 +1,371 @@
+{
+ "plombier-lavabo": {
+  "w": 795,
+  "h": 430,
+  "sizes": [
+   480,
+   795
+  ]
+ },
+ "electricien-tableau": {
+  "w": 797,
+  "h": 431,
+  "sizes": [
+   480,
+   797
+  ]
+ },
+ "chauffagiste-radiateur": {
+  "w": 795,
+  "h": 433,
+  "sizes": [
+   480,
+   795
+  ]
+ },
+ "cuisine-blanche": {
+  "w": 881,
+  "h": 490,
+  "sizes": [
+   480,
+   800,
+   881
+  ]
+ },
+ "salle-de-bain-pmr-site": {
+  "w": 508,
+  "h": 286,
+  "sizes": [
+   508
+  ]
+ },
+ "wc-suspendu-salle": {
+  "w": 883,
+  "h": 494,
+  "sizes": [
+   480,
+   800,
+   883
+  ]
+ },
+ "salle-de-bain-double-vasque": {
+  "w": 883,
+  "h": 494,
+  "sizes": [
+   480,
+   800,
+   883
+  ]
+ },
+ "depannage-fuite-seau": {
+  "w": 1217,
+  "h": 851,
+  "sizes": [
+   480,
+   800,
+   1217
+  ]
+ },
+ "wc-classique": {
+  "w": 1217,
+  "h": 849,
+  "sizes": [
+   480,
+   800,
+   1217
+  ]
+ },
+ "lavabo-meuble": {
+  "w": 1215,
+  "h": 853,
+  "sizes": [
+   480,
+   800,
+   1215
+  ]
+ },
+ "baignoire": {
+  "w": 1213,
+  "h": 853,
+  "sizes": [
+   480,
+   800,
+   1213
+  ]
+ },
+ "chauffe-eau": {
+  "w": 1215,
+  "h": 855,
+  "sizes": [
+   480,
+   800,
+   1215
+  ]
+ },
+ "evier-cuisine": {
+  "w": 1217,
+  "h": 855,
+  "sizes": [
+   480,
+   800,
+   1217
+  ]
+ },
+ "douche-cabine": {
+  "w": 1211,
+  "h": 851,
+  "sizes": [
+   480,
+   800,
+   1211
+  ]
+ },
+ "plombier-sous-evier": {
+  "w": 1264,
+  "h": 845,
+  "sizes": [
+   480,
+   800,
+   1200,
+   1264
+  ]
+ },
+ "equip-wc-standard": {
+  "w": 1024,
+  "h": 1028,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-wc-suspendu": {
+  "w": 1024,
+  "h": 1032,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-wc-douchette": {
+  "w": 1032,
+  "h": 1024,
+  "sizes": [
+   480,
+   800,
+   1032
+  ]
+ },
+ "equip-wc-monobloc": {
+  "w": 1024,
+  "h": 1028,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-douche-paroi": {
+  "w": 1024,
+  "h": 1041,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-cabine-douche": {
+  "w": 1024,
+  "h": 1024,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-douche-italienne": {
+  "w": 1024,
+  "h": 1041,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-baignoire-encastree": {
+  "w": 1028,
+  "h": 1024,
+  "sizes": [
+   480,
+   800,
+   1028
+  ]
+ },
+ "equip-baignoire-angle": {
+  "w": 1024,
+  "h": 1041,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-baignoire-ilot": {
+  "w": 1024,
+  "h": 1037,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-baignoire-balneo": {
+  "w": 1024,
+  "h": 1024,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-lavabo-colonne": {
+  "w": 1033,
+  "h": 1024,
+  "sizes": [
+   480,
+   800,
+   1033
+  ]
+ },
+ "equip-meuble-vasque": {
+  "w": 1024,
+  "h": 1037,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "equip-double-vasque": {
+  "w": 1024,
+  "h": 1024,
+  "sizes": [
+   480,
+   800,
+   1024
+  ]
+ },
+ "hero-reseau": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "hero-reseau-mobile": {
+  "w": 784,
+  "h": 1168,
+  "sizes": [
+   480,
+   784
+  ]
+ },
+ "piece-radiateur": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "piece-electricite": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "pmr": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "atelier": {
+  "w": 784,
+  "h": 1168,
+  "sizes": [
+   480,
+   784
+  ]
+ },
+ "mains-raccord": {
+  "w": 784,
+  "h": 1168,
+  "sizes": [
+   480,
+   784
+  ]
+ },
+ "fuite-macro": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "camionnette": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "chantier-propre": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "riviere": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "fuite-404": {
+  "w": 1168,
+  "h": 784,
+  "sizes": [
+   480,
+   800,
+   1168
+  ]
+ },
+ "texture-papier": {
+  "w": 900,
+  "h": 565,
+  "sizes": [
+   900
+  ]
+ }
+}

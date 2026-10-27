@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="fr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Estimer mon prix : plomberie, chauffage, électricité | Simple Travaux (60)</title>
+<meta name="description" content="Choisissez la pièce, cochez l’intervention : le total TTC s’affiche. WC, lavabo, douche, baignoire, cuisine, chauffe-eau, radiateurs, électricité, salle de bain PMR.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F2EEE4">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Simple Travaux">
+<meta property="og:title" content="Estimer mon prix : plomberie, chauffage, électricité | Simple Travaux (60)">
+<meta property="og:description" content="Choisissez la pièce, cochez l’intervention : le total TTC s’affiche. WC, lavabo, douche, baignoire, cuisine, chauffe-eau, radiateurs, électricité, salle de bain PMR.">
+<meta property="og:url" content="https://simple-travaux-maquette.vercel.app/estimation">
+<meta property="og:image" content="https://simple-travaux-maquette.vercel.app/og/og-estimation.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Estimer mon prix : plomberie, chauffage, électricité | Simple Travaux (60)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Estimer mon prix : plomberie, chauffage, électricité | Simple Travaux (60)">
+<meta name="twitter:description" content="Choisissez la pièce, cochez l’intervention : le total TTC s’affiche. WC, lavabo, douche, baignoire, cuisine, chauffe-eau, radiateurs, électricité, salle de bain PMR.">
+<meta name="twitter:image" content="https://simple-travaux-maquette.vercel.app/og/og-estimation.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<script>
+(function(d){var h=d.documentElement;h.classList.remove('no-js');h.classList.add('js','charge');
+var c=null;try{c=localStorage.getItem('st-calme')}catch(e){}
+var r=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(c==='1'||(c===null&&r))h.classList.add('calme');
+try{if(sessionStorage.getItem('st-calme-retour')&&'scrollRestoration' in history)history.scrollRestoration='manual';if(sessionStorage.getItem('st-vu'))h.classList.add('deja-vu');if(sessionStorage.getItem('st-transition')&&!h.classList.contains('calme'))h.classList.add('entree')}catch(e){}
+setTimeout(function(){h.classList.remove('charge')},2500);})(document);
+</script>
+<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css?v=1">
+<link rel="modulepreload" href="assets/js/main.js?v=1">
+</head>
+<body data-page="estimation">
+<div class="ouverture" data-ouverture aria-hidden="true">
+  <div class="ouverture__feuille ouverture__feuille--haut"></div>
+  <div class="ouverture__feuille ouverture__feuille--bas"></div>
+  <div class="ouverture__centre">
+    <svg class="ouverture__tuyau" viewBox="0 0 1000 120" preserveAspectRatio="none">
+      <path class="ouverture__cuivre" d="M0 96 H180 Q200 96 200 76 V44 Q200 24 220 24 H780 Q800 24 800 44 V76 Q800 96 820 96 H1000"/>
+      <path class="ouverture__eau" d="M0 96 H180 Q200 96 200 76 V44 Q200 24 220 24 H780 Q800 24 800 44 V76 Q800 96 820 96 H1000"/>
+    </svg>
+    <p class="ouverture__mot"><span class="ouverture__l1">SIMPLE</span><span class="ouverture__l2">TRAVAUX</span></p>
+    <p class="ouverture__sous mono">Plomberie · Chauffage · Électricité — Oise (60)</p>
+  </div>
+</div>
+<a class="evitement" href="#contenu">Aller au contenu</a>
+<header class="entete" data-entete>
+  <div class="entete__in">
+    <a class="marque" href="index.html" aria-label="Simple Travaux, accueil">
+  <svg class="marque__picto" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 14h32M20 14v22" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square"/><path d="M4 14h32M20 14v22" fill="none" stroke="var(--eau-froide)" stroke-width="2" stroke-dasharray="3 5" class="marque__eau"/><rect x="1" y="8" width="6" height="12" rx="1" fill="currentColor"/><rect x="33" y="8" width="6" height="12" rx="1" fill="currentColor"/></svg>
+  <span class="marque__mot"><b>SIMPLE</b><span>TRAVAUX</span></span>
+</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav__lien" href="index.html"><span>Accueil</span></a>
+      <a class="nav__lien" href="estimation.html" aria-current="page"><span>Estimer mon prix</span></a>
+      <a class="nav__lien" href="contact.html"><span>Contact</span></a>
+    </nav>
+    <div class="entete__actions">
+      <span class="voyant" data-voyant><i></i><span data-voyant-texte>Lun–sam 8h–19h</span></span>
+      <a class="btn btn--tel" href="tel:+33761183322" data-magnet><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4.2-1.9 1.4a12 12 0 0 0 6.2 6.2l1.4-1.9 4.2 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>07 61 18 33 22</span></a>
+      <button class="calme-btn" type="button" data-calme aria-pressed="false" title="Réduire les animations"><span class="calme-btn__ico" aria-hidden="true"></span><span class="calme-btn__long">Mode calme</span><span class="calme-btn__court">Calme</span></button>
+      <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-controls="menu"><span class="visuellement-cache">Menu</span><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+<div class="menu" id="menu" data-menu-panneau hidden>
+  <nav aria-label="Menu mobile">
+    <a href="index.html"><span class="mono">01</span>Accueil</a>
+    <a href="estimation.html" aria-current="page"><span class="mono">02</span>Estimer mon prix</a>
+    <a href="contact.html"><span class="mono">03</span>Contact</a>
+  </nav>
+  <a class="menu__tel" href="tel:+33761183322"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4.2-1.9 1.4a12 12 0 0 0 6.2 6.2l1.4-1.9 4.2 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>07 61 18 33 22</a>
+  <p class="mono menu__horaires">Du lundi au samedi, 8h–19h</p>
+</div>
+<main id="contenu">
+
+<section class="estim-hero" data-section>
+  <div class="wrap estim-hero__grille">
+    <div class="estim-hero__texte">
+      <p class="eyebrow" data-raccord><span class="vanne" aria-hidden="true"><i></i></span><span class="mono">01</span><span>Estimateur · tarifs TTC</span></p>
+      <h1 class="titre-xl" data-split>Votre prix en <em>trois gestes.</em></h1>
+      <p class="lead" data-apparait>Choisissez la pièce, cochez l’intervention, le total s’affiche. Ce sont les tarifs publiés par Pedro pour une intervention standard.</p>
+      <ol class="gestes mono" data-apparait><li><span>1</span>La pièce</li><li><span>2</span>Les prestations</li><li><span>3</span>La demande</li></ol>
+    </div>
+    <figure class="estim-hero__visuel" data-cotes>
+      <img class="" src="assets/img/wc-suspendu-salle-800.webp" srcset="assets/img/wc-suspendu-salle-480.webp 480w, assets/img/wc-suspendu-salle-800.webp 800w, assets/img/wc-suspendu-salle-883.webp 883w" sizes="(max-width: 900px) 100vw, 45vw" width="800" height="448" alt="Petite salle de bain claire avec WC suspendu et meuble vasque" fetchpriority="high" decoding="async" >
+      <svg class="cotes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="cote" d="M0 -4 H100"/><path class="cote" d="M-3 0 V100"/></svg>
+      <div class="estim-hero__compteur"><div class="compteur compteur--hero" data-compteur data-valeur="0">
+  <span class="visuellement-cache" aria-live="polite" data-compteur-texte>0 €</span>
+  <span class="compteur__cadran" aria-hidden="true" data-compteur-cadran></span>
+  <span class="compteur__unite" aria-hidden="true">€ TTC</span>
+</div><span class="mono">Votre total en direct</span></div>
+    </figure>
+  </div>
+</section>
+
+<section class="estim" id="estimateur" data-section data-estimateur>
+  <div class="wrap estim__grille">
+    <div class="estim__principal">
+      <div class="estim__etape" id="etape-piece">
+        <p class="eyebrow" data-raccord><span class="vanne" aria-hidden="true"><i></i></span><span class="mono">02</span><span>Étape 1 · la pièce</span></p>
+        <h2 class="titre-m">Quelle pièce est concernée&nbsp;?</h2>
+        <div class="tuiles" role="group" aria-label="Pièces">
+        <button type="button" class="tuile" data-piece-btn="wc" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/wc-classique-800.webp" srcset="assets/img/wc-classique-480.webp 480w, assets/img/wc-classique-800.webp 800w, assets/img/wc-classique-1217.webp 1217w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="558" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">01</span>
+          <span class="tuile__nom">WC &amp; toilettes</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="lavabo" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/lavabo-meuble-800.webp" srcset="assets/img/lavabo-meuble-480.webp 480w, assets/img/lavabo-meuble-800.webp 800w, assets/img/lavabo-meuble-1215.webp 1215w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="562" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">02</span>
+          <span class="tuile__nom">Lavabo &amp; vasque</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="douche" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/douche-cabine-800.webp" srcset="assets/img/douche-cabine-480.webp 480w, assets/img/douche-cabine-800.webp 800w, assets/img/douche-cabine-1211.webp 1211w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="562" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">03</span>
+          <span class="tuile__nom">Douche</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="baignoire" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/baignoire-800.webp" srcset="assets/img/baignoire-480.webp 480w, assets/img/baignoire-800.webp 800w, assets/img/baignoire-1213.webp 1213w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="563" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">04</span>
+          <span class="tuile__nom">Baignoire</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="cuisine" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/evier-cuisine-800.webp" srcset="assets/img/evier-cuisine-480.webp 480w, assets/img/evier-cuisine-800.webp 800w, assets/img/evier-cuisine-1217.webp 1217w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="562" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">05</span>
+          <span class="tuile__nom">Cuisine &amp; évier</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="chauffe-eau" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/chauffe-eau-800.webp" srcset="assets/img/chauffe-eau-480.webp 480w, assets/img/chauffe-eau-800.webp 800w, assets/img/chauffe-eau-1215.webp 1215w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="563" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">06</span>
+          <span class="tuile__nom">Chauffe-eau</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="radiateurs" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/piece-radiateur-800.webp" srcset="assets/img/piece-radiateur-480.webp 480w, assets/img/piece-radiateur-800.webp 800w, assets/img/piece-radiateur-1168.webp 1168w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="537" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">07</span>
+          <span class="tuile__nom">Radiateurs &amp; chauffage</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="electricite" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/piece-electricite-800.webp" srcset="assets/img/piece-electricite-480.webp 480w, assets/img/piece-electricite-800.webp 800w, assets/img/piece-electricite-1168.webp 1168w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="537" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">08</span>
+          <span class="tuile__nom">Électricité</span>
+          <span class="tuile__prix mono">dès 70 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="depannage" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/depannage-fuite-seau-800.webp" srcset="assets/img/depannage-fuite-seau-480.webp 480w, assets/img/depannage-fuite-seau-800.webp 800w, assets/img/depannage-fuite-seau-1217.webp 1217w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="559" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">09</span>
+          <span class="tuile__nom">Dépannage général</span>
+          <span class="tuile__prix mono">dès 120 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        <button type="button" class="tuile" data-piece-btn="pmr" aria-pressed="false" data-tilt>
+          <span class="tuile__img"><img class="" src="assets/img/pmr-800.webp" srcset="assets/img/pmr-480.webp 480w, assets/img/pmr-800.webp 800w, assets/img/pmr-1168.webp 1168w" sizes="(max-width: 700px) 40vw, 14vw" width="800" height="537" alt="" loading="lazy" decoding="async" ></span>
+          <span class="tuile__num mono">10</span>
+          <span class="tuile__nom">Salle de bain PMR</span>
+          <span class="tuile__prix mono">dès 250 €</span>
+          <span class="tuile__compte mono" data-tuile-compte></span>
+        </button>
+        </div>
+      </div>
+      <div class="estim__etape" id="etape-presta">
+        <p class="eyebrow" data-raccord><span class="vanne" aria-hidden="true"><i></i></span><span class="mono">03</span><span>Étape 2 · les prestations</span></p>
+        <h2 class="titre-m" data-presta-titre>Cochez les interventions</h2>
+        <p class="estim__vide" data-presta-vide>Choisissez d’abord une pièce ci-dessus.</p>
+        <div class="presta" data-presta="wc" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">WC &amp; toilettes</h3>
+            <p>Pose, remplacement ou réparation de WC posés ou suspendus.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="wc-debouchage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Débouchage simple</span><span class="ligne__desc">Intervention pour déboucher la cuvette des WC et rétablir un écoulement normal.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="wc-chasse" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement d’une chasse d’eau</span><span class="ligne__desc">Dépose de l’ancien mécanisme et pose d’un système de chasse d’eau neuf.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="wc-fuite-reservoir" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur réservoir</span><span class="ligne__desc">Recherche, réparation de fuite ou remplacement des joints du réservoir.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="wc-fuite-arrivee" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur arrivée d’eau</span><span class="ligne__desc">Réparation du robinet d’arrêt ou du flexible d’alimentation d’eau.</span></span>
+              <span class="ligne__prix mono">130 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="wc-fuite-evac" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur évacuation</span><span class="ligne__desc">Réparation ou remplacement de la pipe d’évacuation.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="wc-broyeur" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Panne sur broyeur ou pompe de relevage</span><span class="ligne__desc">Diagnostic et dépannage sur le mécanisme du sanibroyeur ou de la pompe.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer</legend>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="wc-standard" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-wc-standard-800.webp" srcset="assets/img/equip-wc-standard-480.webp 480w, assets/img/equip-wc-standard-800.webp 800w, assets/img/equip-wc-standard-1024.webp 1024w" sizes="72px" width="800" height="803" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">WC standard</span><span class="ligne__desc">Dépose de l’ancien WC et pose d’une cuvette au sol standard neuve.</span></span>
+              <span class="ligne__prix mono">450 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="wc-pmr" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">WC PMR</span><span class="ligne__desc">Installation d’une cuvette réhaussée, adaptée aux personnes à mobilité réduite.</span></span>
+              <span class="ligne__prix mono">750 €</span>
+            </label>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="wc-suspendu" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-wc-suspendu-800.webp" srcset="assets/img/equip-wc-suspendu-480.webp 480w, assets/img/equip-wc-suspendu-800.webp 800w, assets/img/equip-wc-suspendu-1024.webp 1024w" sizes="72px" width="800" height="806" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">WC suspendu</span><span class="ligne__desc">Pose d’un bâti-support encastré et installation d’une cuvette suspendue neuve.</span></span>
+              <span class="ligne__prix mono">1 000 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="lavabo" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Lavabo &amp; vasque</h3>
+            <p>Remplacement de robinetterie, installation de meuble vasque.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="lav-debouchage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Débouchage lavabo / évacuation</span><span class="ligne__desc">Déboucher un lavabo ou une évacuation.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="lav-robinet" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du robinet</span><span class="ligne__desc">Remplacer un robinet ou un mitigeur.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="lav-siphon" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du siphon</span><span class="ligne__desc">Remplacer le siphon du lavabo.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="lav-fuite-alim" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur alimentation en eau</span><span class="ligne__desc">Rechercher et réparer une fuite sur l’alimentation en eau.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="lav-fuite-evac" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur évacuation d’eau</span><span class="ligne__desc">Réparer une fuite sur l’évacuation.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="lav-fixation" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fixation du lavabo</span><span class="ligne__desc">Refixer un lavabo.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer</legend>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="lav-colonne" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-lavabo-colonne-800.webp" srcset="assets/img/equip-lavabo-colonne-480.webp 480w, assets/img/equip-lavabo-colonne-800.webp 800w, assets/img/equip-lavabo-colonne-1033.webp 1033w" sizes="72px" width="800" height="793" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">Lavabo + colonne</span><span class="ligne__desc">Installation d’un lavabo avec colonne et raccordements standards.</span></span>
+              <span class="ligne__prix mono">450 €</span>
+            </label>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="lav-meuble" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-meuble-vasque-800.webp" srcset="assets/img/equip-meuble-vasque-480.webp 480w, assets/img/equip-meuble-vasque-800.webp 800w, assets/img/equip-meuble-vasque-1024.webp 1024w" sizes="72px" width="800" height="810" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">Meuble vasque</span><span class="ligne__desc">Fourniture et pose d’un meuble vasque avec raccordements standards.</span></span>
+              <span class="ligne__prix mono">650 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="lav-tuyauterie" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Modification de tuyauterie</span><span class="ligne__desc">Modification standard des réseaux eau chaude, eau froide et évacuation.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="douche" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Douche</h3>
+            <p>Pose de cabine, receveur ou colonne de douche.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="dou-debouchage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Débouchage douche</span><span class="ligne__desc">Intervention pour déboucher la bonde et l’évacuation de la douche.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-mitigeur" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du mitigeur</span><span class="ligne__desc">Dépose du mélangeur ou mitigeur actuel et pose d’un robinet neuf.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-vidage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du système de vidage</span><span class="ligne__desc">Changement de la bonde de douche et des raccords sous receveur.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-fuite-alim" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur alimentation en eau</span><span class="ligne__desc">Réparation de la fuite sur les canalisations d’arrivée d’eau chaude ou froide.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-fuite-evac" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur évacuation d’eau</span><span class="ligne__desc">Intervention et réparation sur le conduit d’évacuation de la douche.</span></span>
+              <span class="ligne__prix mono">155 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-joints" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Réfection des joints silicone</span><span class="ligne__desc">Dépose de l’ancien joint dégradé et pose d’un joint silicone d’étanchéité neuf.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer</legend>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="dou-bac-80" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-douche-paroi-800.webp" srcset="assets/img/equip-douche-paroi-480.webp 480w, assets/img/equip-douche-paroi-800.webp 800w, assets/img/equip-douche-paroi-1024.webp 1024w" sizes="72px" width="800" height="813" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">Receveur 80 × 80 cm</span><span class="ligne__desc">Fourniture et pose d’un receveur de douche carré 80 × 80 cm.</span></span>
+              <span class="ligne__prix mono">650 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-bac-90" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Receveur 90 × 90 cm</span><span class="ligne__desc">Fourniture et pose d’un receveur de douche carré 90 × 90 cm.</span></span>
+              <span class="ligne__prix mono">750 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-bac-80-120" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Receveur 80 × 120 cm</span><span class="ligne__desc">Fourniture et pose d’un receveur de douche rectangulaire 80 × 120 cm.</span></span>
+              <span class="ligne__prix mono">850 €</span>
+            </label>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="dou-paroi-80" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-cabine-douche-800.webp" srcset="assets/img/equip-cabine-douche-480.webp 480w, assets/img/equip-cabine-douche-800.webp 800w, assets/img/equip-cabine-douche-1024.webp 1024w" sizes="72px" width="800" height="800" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">Paroi de douche 80 × 80 cm</span><span class="ligne__desc">Pose d’une paroi de protection ou vitrage de douche 80 × 80 cm.</span></span>
+              <span class="ligne__prix mono">600 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-paroi-90" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Paroi de douche 90 × 90 cm</span><span class="ligne__desc">Pose d’une paroi de protection ou vitrage de douche 90 × 90 cm.</span></span>
+              <span class="ligne__prix mono">650 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dou-paroi-120" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Paroi de douche 120 cm</span><span class="ligne__desc">Pose d’une paroi vitrée de douche fixe ou coulissante de 120 cm.</span></span>
+              <span class="ligne__prix mono">700 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Transformer</legend>
+            <label class="ligne">
+              <input type="checkbox" value="dou-colonne" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Colonne de douche (ou barre et douchette)</span><span class="ligne__desc">Dépose de l’ancien équipement et pose d’une colonne de douche neuve.</span></span>
+              <span class="ligne__prix mono">300 €</span>
+            </label>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="dou-italienne" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-douche-italienne-800.webp" srcset="assets/img/equip-douche-italienne-480.webp 480w, assets/img/equip-douche-italienne-800.webp 800w, assets/img/equip-douche-italienne-1024.webp 1024w" sizes="72px" width="800" height="813" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">Douche à l’italienne (receveur à carreler)</span><span class="ligne__desc">Rénovation complète ou création d’une douche à l’italienne de plain-pied.</span></span>
+              <span class="ligne__prix mono">4 500 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="baignoire" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Baignoire</h3>
+            <p>Installation, changement ou rénovation de baignoire.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="bai-debouchage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Débouchage baignoire / évacuation</span><span class="ligne__desc">Intervention pour déboucher l’évacuation et rétablir l’écoulement.</span></span>
+              <span class="ligne__prix mono">140 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-robinet" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du robinet (ou mitigeur)</span><span class="ligne__desc">Dépose de l’ancien robinet et pose d’un nouveau mitigeur de baignoire.</span></span>
+              <span class="ligne__prix mono">200 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-vidange" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du système de vidange</span><span class="ligne__desc">Changement de la bonde, du siphon et du mécanisme de vidange.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-fuite-alim" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur alimentation en eau</span><span class="ligne__desc">Recherche et réparation de fuite sur les arrivées d’eau chaude ou froide.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-fuite-evac" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur évacuation d’eau</span><span class="ligne__desc">Réparation de la tuyauterie ou des raccords d’évacuation sous la baignoire.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-joint" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Réfection du joint silicone</span><span class="ligne__desc">Dépose des anciens joints et pose d’un joint d’étanchéité silicone neuf.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer</legend>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="bai-120" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-baignoire-encastree-800.webp" srcset="assets/img/equip-baignoire-encastree-480.webp 480w, assets/img/equip-baignoire-encastree-800.webp 800w, assets/img/equip-baignoire-encastree-1028.webp 1028w" sizes="72px" width="800" height="797" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">Baignoire droite 120 cm</span><span class="ligne__desc">Fourniture et pose d’une baignoire droite de 120 cm.</span></span>
+              <span class="ligne__prix mono">900 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-140" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Baignoire droite 140 cm</span><span class="ligne__desc">Fourniture et pose d’une baignoire droite de 140 cm.</span></span>
+              <span class="ligne__prix mono">950 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-160" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Baignoire droite 160 cm</span><span class="ligne__desc">Fourniture et pose d’une baignoire droite de 160 cm.</span></span>
+              <span class="ligne__prix mono">1 050 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-170" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Baignoire droite 170 cm</span><span class="ligne__desc">Fourniture et pose d’une baignoire droite de 170 cm.</span></span>
+              <span class="ligne__prix mono">1 100 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-tablier" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Tablier de baignoire</span><span class="ligne__desc">Pose et habillage de baignoire avec tablier.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-barre" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Barre de douche, flexible et douchette</span><span class="ligne__desc">Installation de l’ensemble douchette, barre murale et flexible.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Transformer</legend>
+            <label class="ligne ligne--img">
+              <input type="checkbox" value="bai-douche" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              <span class="ligne__img"><img class="" src="assets/img/equip-douche-paroi-800.webp" srcset="assets/img/equip-douche-paroi-480.webp 480w, assets/img/equip-douche-paroi-800.webp 800w, assets/img/equip-douche-paroi-1024.webp 1024w" sizes="72px" width="800" height="813" alt="" loading="lazy" decoding="async" ></span>
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement de la baignoire par une douche</span><span class="ligne__desc">Dépose complète de la baignoire et installation d’un espace douche.</span></span>
+              <span class="ligne__prix mono">4 500 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="bai-pare-bain" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du pare-bain</span><span class="ligne__desc">Dépose et pose d’un pare-bain vitré de protection.</span></span>
+              <span class="ligne__prix mono">300 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="cuisine" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Cuisine &amp; évier</h3>
+            <p>Raccordement, pose ou dépannage de plomberie cuisine.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="cui-debouchage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Débouchage évier</span><span class="ligne__desc">Intervention pour déboucher l’évacuation de l’évier et rétablir l’écoulement.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-mitigeur" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du robinet (ou mitigeur)</span><span class="ligne__desc">Dépose de l’ancien robinet de cuisine et pose d’un nouveau mitigeur.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-vidange" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du système de vidange</span><span class="ligne__desc">Changement de la bonde, du siphon et du trop-plein de l’évier.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-fuite-alim" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur alimentation en eau</span><span class="ligne__desc">Réparation de fuite sur les arrivées ou flexibles d’eau chaude ou froide.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-fuite-evac" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur évacuation d’eau</span><span class="ligne__desc">Réparation ou remplacement des raccords et tuyaux d’évacuation.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-joint" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Réfection du joint silicone</span><span class="ligne__desc">Dépose de l’ancien joint usé et pose d’un joint silicone d’étanchéité neuf.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Lave-linge &amp; lave-vaisselle</legend>
+            <label class="ligne">
+              <input type="checkbox" value="cui-robinet-machine" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du robinet machine</span><span class="ligne__desc">Pose d’un nouveau robinet d’arrêt dédié au lave-linge ou lave-vaisselle.</span></span>
+              <span class="ligne__prix mono">130 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-alim-machine" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Création d’une alimentation</span><span class="ligne__desc">Repiquage et création d’une nouvelle arrivée d’eau pour l’électroménager.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-evac-machine" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Création d’une évacuation</span><span class="ligne__desc">Raccordement et création d’une conduite d’évacuation dédiée.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer</legend>
+            <label class="ligne">
+              <input type="checkbox" value="cui-meuble-90" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Meuble sous-évier 90 cm</span><span class="ligne__desc">Fourniture et pose d’un sous-évier de 90 cm de large.</span></span>
+              <span class="ligne__prix mono">750 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-meuble-100" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Meuble sous-évier 100 cm</span><span class="ligne__desc">Fourniture et pose d’un sous-évier de 100 cm de large.</span></span>
+              <span class="ligne__prix mono">800 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-meuble-120" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Meuble sous-évier 120 cm</span><span class="ligne__desc">Fourniture et pose d’un sous-évier de 120 cm de large.</span></span>
+              <span class="ligne__prix mono">900 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-evier-90" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Évier 90 cm</span><span class="ligne__desc">Dépose et pose d’un bac d’évier neuf de 90 cm de large.</span></span>
+              <span class="ligne__prix mono">400 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-evier-100" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Évier 100 cm</span><span class="ligne__desc">Dépose et pose d’un bac d’évier neuf de 100 cm de large.</span></span>
+              <span class="ligne__prix mono">450 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="cui-evier-120" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Évier 120 cm</span><span class="ligne__desc">Dépose et pose d’un bac d’évier neuf de 120 cm de large.</span></span>
+              <span class="ligne__prix mono">500 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="chauffe-eau" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Chauffe-eau</h3>
+            <p>Remplacement ou entretien de votre ballon d’eau chaude électrique.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="ce-panne" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Panne / vérification électrique</span><span class="ligne__desc">Diagnostic électrique, contrôle du thermostat et de la résistance.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-fuite-alim" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur alimentation en eau</span><span class="ligne__desc">Réparation de la fuite sur les arrivées d’eau froide ou sorties d’eau chaude.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-fuite-evac" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur évacuation d’eau</span><span class="ligne__desc">Intervention sur la tuyauterie et les raccords d’évacuation du chauffe-eau.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-groupe" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du groupe de sécurité</span><span class="ligne__desc">Dépose de l’ancien groupe et pose d’un groupe de sécurité neuf.</span></span>
+              <span class="ligne__prix mono">220 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-reducteur" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement du réducteur de pression</span><span class="ligne__desc">Changement du réducteur de pression défectueux sur l’installation.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-reducteur-pose" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Installation d’un réducteur de pression</span><span class="ligne__desc">Pose d’un réducteur de pression neuf pour protéger le ballon.</span></span>
+              <span class="ligne__prix mono">300 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer</legend>
+            <label class="ligne">
+              <input type="checkbox" value="ce-50" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Ballon 50 L</span><span class="ligne__desc">Dépose de l’ancien ballon et installation d’un chauffe-eau électrique de 50 litres.</span></span>
+              <span class="ligne__prix mono">700 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-100" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Ballon 100 L</span><span class="ligne__desc">Dépose de l’ancien ballon et installation d’un chauffe-eau électrique de 100 litres.</span></span>
+              <span class="ligne__prix mono">950 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-150" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Ballon 150 L</span><span class="ligne__desc">Dépose de l’ancien ballon et installation d’un chauffe-eau électrique de 150 litres.</span></span>
+              <span class="ligne__prix mono">1 150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-200" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Ballon 200 L</span><span class="ligne__desc">Dépose de l’ancien ballon et installation d’un chauffe-eau électrique de 200 litres.</span></span>
+              <span class="ligne__prix mono">1 350 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-trepied" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Trépied de chauffe-eau</span><span class="ligne__desc">Fourniture et pose d’un trépied de support pour ballon vertical.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="ce-tuyauterie" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Modification de tuyauterie</span><span class="ligne__desc">Modification du réseau de canalisations pour s’adapter au nouveau chauffe-eau.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="radiateurs" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Radiateurs &amp; chauffage</h3>
+            <p>Fuite, désembouage, remplacement ou déplacement de radiateur à eau.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="rad-chauffe-mal" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Radiateur qui chauffe mal</span><span class="ligne__desc">Purge, contrôle de la vanne thermostatique et équilibrage du circuit.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="rad-fuite" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur radiateur</span><span class="ligne__desc">Recherche, réparation de fuite ou remplacement des joints et raccords du radiateur.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="rad-fuite-tuyau" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite sur tuyau de chauffage</span><span class="ligne__desc">Localisation et réparation par soudure ou raccord sur tuyauterie d’alimentation.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="rad-desembouage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Désembouage d’un radiateur</span><span class="ligne__desc">Rinçage et nettoyage interne du radiateur encrassé.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer ou déplacer</legend>
+            <label class="ligne">
+              <input type="checkbox" value="rad-robinet" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement d’un robinet de radiateur</span><span class="ligne__desc">Robinet classique ou thermostatique, avec vidange et remplissage.</span></span>
+              <span class="ligne__prix mono">180 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="rad-remplacement" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement d’un radiateur</span><span class="ligne__desc">Dépose de l’ancien radiateur, pose du nouveau modèle et raccordement au réseau.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="rad-deplacement" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Déplacement d’un radiateur</span><span class="ligne__desc">Prolongation des tuyauteries et réinstallation du radiateur à un nouvel endroit.</span></span>
+              <span class="ligne__prix mono">350 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="rad-suppression" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Suppression d’un radiateur</span><span class="ligne__desc">Vidange du circuit, dépose du radiateur et bouchonnage étanche de la tuyauterie.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="electricite" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Électricité</h3>
+            <p>Recherche de panne, tableau, prises, luminaires et raccordements.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="el-panne" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Recherche de panne</span><span class="ligne__desc">Diagnostic, vérification du tableau et remise en service.</span></span>
+              <span class="ligne__prix mono">90 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="el-securite" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Mise en sécurité / diagnostic global</span><span class="ligne__desc">Contrôle complet de l’installation et rapport de préconisations.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne ligne--devis">
+              <input type="checkbox" value="el-normes" data-presta-input disabled>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Mise aux normes électriques</span><span class="ligne__desc">Selon l’installation existante.</span></span>
+              <span class="ligne__prix mono">Sur devis</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Installer</legend>
+            <label class="ligne">
+              <input type="checkbox" value="el-prise" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement de prise / interrupteur</span><span class="ligne__desc">Dépose de l’ancien, fourniture et pose du nouvel appareillage.</span></span>
+              <span class="ligne__prix mono">70 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="el-luminaire" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Pose de luminaire / lustre</span><span class="ligne__desc">Fixation, raccordement et test de fonctionnement.</span></span>
+              <span class="ligne__prix mono">80 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="el-electromenager" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Raccordement gros électroménager</span><span class="ligne__desc">Tirage de ligne dédiée 32 A / 20 A et protection au tableau.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="el-tableau" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Remplacement de tableau électrique</span><span class="ligne__desc">Dépose, pose d’un tableau nu avec disjoncteurs différentiels.</span></span>
+              <span class="ligne__prix mono">600 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="depannage" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Dépannage général</h3>
+            <p>Fuites, débouchages, vannes, pression d’eau et dépannages courants.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Dépanner</legend>
+            <label class="ligne">
+              <input type="checkbox" value="dep-fuite-visible" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite d’eau apparente</span><span class="ligne__desc">Localisation et réparation d’une fuite visible sur tuyauterie, robinet ou raccord.</span></span>
+              <span class="ligne__prix mono">120 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dep-fuite-cachee" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Fuite encastrée / non visible</span><span class="ligne__desc">Détection d’une fuite cachée (murs, sols) à l’aide d’outils de diagnostic.</span></span>
+              <span class="ligne__prix mono">350 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dep-debouchage" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Débouchage de canalisation générale</span><span class="ligne__desc">Intervention pour rétablir l’écoulement dans les évacuations principales.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dep-engorgement" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Engorgement / débordement</span><span class="ligne__desc">Débouchage d’urgence et nettoyage sur canalisation fortement engorgée.</span></span>
+              <span class="ligne__prix mono">300 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dep-broyeur" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Diagnostic panne sur broyeur</span><span class="ligne__desc">Contrôle complet, recherche de panne et contrôle de fonctionnement du broyeur.</span></span>
+              <span class="ligne__prix mono">150 €</span>
+            </label>
+          </fieldset>
+          <fieldset class="groupe">
+            <legend class="mono">Remplacer</legend>
+            <label class="ligne">
+              <input type="checkbox" value="dep-vanne" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Vanne d’arrêt générale</span><span class="ligne__desc">Dépose de l’ancienne vanne et pose d’un robinet d’arrêt général neuf.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="dep-pression" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Réducteur de pression</span><span class="ligne__desc">Installation d’un réducteur pour protéger vos canalisations et appareils.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+          </fieldset>
+        </div>
+        <div class="presta" data-presta="pmr" hidden>
+          <div class="presta__tete">
+            <h3 class="presta__titre">Salle de bain PMR</h3>
+            <p>Adapter la salle de bain pour l’autonomie des personnes à mobilité réduite et des seniors.</p>
+          </div>
+          <fieldset class="groupe">
+            <legend class="mono">Adapter</legend>
+            <label class="ligne">
+              <input type="checkbox" value="pmr-barres" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Barres d’appui / maintien</span><span class="ligne__desc">Fixation sécurisée de barres d’appui pour faciliter les déplacements.</span></span>
+              <span class="ligne__prix mono">250 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="pmr-siege" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Siège de douche mural rabattable</span><span class="ligne__desc">Fourniture et pose d’un siège mural rabattable pour l’espace douche.</span></span>
+              <span class="ligne__prix mono">450 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="pmr-mitigeur" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Mitigeur thermostatique ergonomique</span><span class="ligne__desc">Robinet thermostatique anti-brûlure avec poignées ergonomiques.</span></span>
+              <span class="ligne__prix mono">350 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="pmr-lavabo" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Lavabo PMR suspendu</span><span class="ligne__desc">Dépose de l’ancien lavabo, pose d’une vasque suspendue accessible en fauteuil.</span></span>
+              <span class="ligne__prix mono">450 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="pmr-wc" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">WC PMR</span><span class="ligne__desc">Cuvette surélevée ou suspendue aux normes d’accessibilité.</span></span>
+              <span class="ligne__prix mono">750 €</span>
+            </label>
+            <label class="ligne">
+              <input type="checkbox" value="pmr-douche" data-presta-input>
+              <span class="ligne__vanne" aria-hidden="true"><i></i></span>
+              
+              <span class="ligne__texte"><span class="ligne__nom">Douche de plain-pied</span><span class="ligne__desc">Dépose de la baignoire, adaptation des évacuations et création d’une douche accessible.</span></span>
+              <span class="ligne__prix mono">4 500 €</span>
+            </label>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+    <aside class="recap" id="recap" data-recap aria-labelledby="recap-titre">
+      <div class="recap__in">
+        <div class="recap__tete">
+          <p class="recap__titre" id="recap-titre">Votre estimation</p>
+          <button class="recap__fermer" type="button" data-recap-fermer><span class="visuellement-cache">Fermer le récapitulatif</span>×</button>
+        </div>
+        <div class="compteur compteur--recap" data-compteur data-valeur="0">
+  <span class="visuellement-cache" aria-live="polite" data-compteur-texte>0 €</span>
+  <span class="compteur__cadran" aria-hidden="true" data-compteur-cadran></span>
+  <span class="compteur__unite" aria-hidden="true">€ TTC</span>
+</div>
+        <p class="recap__ttc mono">Total TTC des prestations</p>
+        <ul class="recap__lignes" data-recap-lignes><li class="recap__rien">Aucune prestation pour l’instant.</li></ul>
+        <ul class="recap__notes">
+          <li>Déplacement : 50,00 € HT dans un rayon de 30 km, <em>inclusion dans les tarifs à confirmer</em>.</li>
+          <li>Tarifs indicatifs pour une intervention standard. Un devis détaillé vous est remis avant toute intervention.</li>
+        </ul>
+        <div class="recap__actions">
+          <a class="btn btn--cuivre" href="#demande" data-recap-demande>Demander l’intervention <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <button class="btn btn--texte" type="button" data-recap-vider>Tout effacer</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="demande" id="demande" data-section data-masque-barre>
+  <div class="wrap demande__grille">
+    <div class="demande__texte">
+      <p class="eyebrow" data-raccord><span class="vanne" aria-hidden="true"><i></i></span><span class="mono">04</span><span>Étape 3 · la demande</span></p>
+      <h2 class="titre-l" data-split>Pedro vous rappelle pour confirmer.</h2>
+      <p data-apparait>Votre sélection est jointe à la demande. Le tarif est confirmé ensemble avant l’intervention.</p>
+      <div class="demande__resume" data-demande-resume><p class="mono">Sélection</p><p data-demande-total>Aucune prestation sélectionnée.</p></div>
+    </div>
+    <form class="formulaire" data-form-simule="demande" novalidate>
+      <fieldset class="choix-quand">
+        <legend>Quand souhaitez-vous l’intervention&nbsp;?</legend>
+        <label class="radio-carte"><input type="radio" name="quand" value="urgent" required><span><b>Urgent</b><em>Pedro vous rappelle au plus vite</em></span></label>
+        <label class="radio-carte"><input type="radio" name="quand" value="rdv" checked><span><b>Prendre rendez-vous</b><em>Choisir un créneau</em></span></label>
+        <label class="radio-carte"><input type="radio" name="quand" value="plus-tard"><span><b>Pas tout de suite</b><em>Pour un projet à venir</em></span></label>
+      </fieldset>
+      <div class="creneaux" data-creneaux>
+        <p class="champ__label">Jour et créneau souhaités <span class="mono">(du lundi au samedi)</span></p>
+        <div class="jours" data-jours role="group" aria-label="Jour"></div>
+        <div class="heures" data-heures role="group" aria-label="Créneau"></div>
+        <p class="petit mono">Créneaux de démonstration, à confirmer par Pedro.</p>
+      </div>
+      <div class="champs">
+        <label class="champ"><span class="champ__label">Nom *</span><input name="nom" autocomplete="name" required></label>
+        <label class="champ"><span class="champ__label">Téléphone *</span><input name="tel" type="tel" autocomplete="tel" required inputmode="tel"></label>
+        <label class="champ"><span class="champ__label">E-mail *</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="champ"><span class="champ__label">Rue</span><input name="rue" autocomplete="street-address"></label>
+        <label class="champ"><span class="champ__label">Code postal</span><input name="cp" autocomplete="postal-code" inputmode="numeric"></label>
+        <label class="champ"><span class="champ__label">Ville</span><input name="ville" autocomplete="address-level2"></label>
+        <label class="champ champ--large"><span class="champ__label">Précisions</span><textarea name="message" rows="3" maxlength="600"></textarea></label>
+      </div>
+      <p class="rgpd">Vos coordonnées servent uniquement à traiter votre demande et à vous recontacter. Elles ne sont ni cédées ni vendues. <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a> (à compléter).</p>
+      <button class="btn btn--cuivre btn--grand" type="submit">Envoyer ma demande <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="petit mono">Maquette : l’envoi est simulé, aucune donnée n’est transmise.</p>
+      <div class="confirmation" data-confirmation hidden tabindex="-1"></div>
+    </form>
+  </div>
+</section>
+
+<section class="inclus" data-section>
+  <div class="wrap inclus__grille">
+    <figure class="inclus__visuel" data-cotes data-parallaxe>
+      <img class="" src="assets/img/chantier-propre-800.webp" srcset="assets/img/chantier-propre-480.webp 480w, assets/img/chantier-propre-800.webp 800w, assets/img/chantier-propre-1168.webp 1168w" sizes="(max-width: 900px) 100vw, 45vw" width="800" height="537" alt="Salle de bain en travaux, sol protégé, outils rangés" loading="lazy" decoding="async" >
+      <svg class="cotes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="cote" d="M0 104 H100"/><path class="cote" d="M103 0 V100"/></svg>
+    </figure>
+    <div class="inclus__texte">
+      <p class="eyebrow" data-raccord><span class="vanne" aria-hidden="true"><i></i></span><span class="mono">05</span><span>Ce que comprend le prix</span></p>
+      <h2 class="titre-l" data-split>Un prix clair, et ce qu’il couvre.</h2>
+      <div class="inclus__colonnes">
+        <div><p class="mono inclus__t inclus__t--oui">Compris</p><ul class="coches" data-coches><li class="coche coche--oui">Une intervention standard, dans des conditions normales d’accès et de réalisation</li><li class="coche coche--oui">La fourniture et la main-d’œuvre, lorsque la prestation le précise</li><li class="coche coche--oui">Pour une pose : dépose et évacuation de l’ancien équipement, consommables, raccordements et essais d’étanchéité</li></ul></div>
+        <div><p class="mono inclus__t">Devis complémentaire si</p><ul class="coches" data-coches><li class="coche coche--plus">Canalisation fortement détériorée</li><li class="coche coche--plus">Accès difficile à une canalisation encastrée</li><li class="coche coche--plus">Remplacement de plusieurs éléments</li><li class="coche coche--plus">Recherche de fuite nécessitant des moyens spécifiques</li><li class="coche coche--plus">Réparation nécessitant une ouverture de mur ou de sol</li></ul></div>
+      </div>
+      <p class="petit" data-apparait>Les travaux supplémentaires sont identifiés avant leur réalisation et soumis à votre validation.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="pied sombre" data-masque-barre>
+  <div class="wrap pied__grille">
+    <div class="pied__marque">
+      <a class="marque" href="index.html" aria-label="Simple Travaux, accueil">
+  <svg class="marque__picto" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 14h32M20 14v22" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square"/><path d="M4 14h32M20 14v22" fill="none" stroke="var(--eau-froide)" stroke-width="2" stroke-dasharray="3 5" class="marque__eau"/><rect x="1" y="8" width="6" height="12" rx="1" fill="currentColor"/><rect x="33" y="8" width="6" height="12" rx="1" fill="currentColor"/></svg>
+  <span class="marque__mot"><b>SIMPLE</b><span>TRAVAUX</span></span>
+</a>
+      <p>Artisan plombier, chauffagiste et électricien indépendant à Longueil-Sainte-Marie (60126). Intervention dans un rayon de 30 km.</p>
+    </div>
+    <div>
+      <p class="pied__titre mono">Contact</p>
+      <ul class="pied__liste">
+        <li><a href="tel:+33761183322">07 61 18 33 22</a> <span class="pied__note">appel ou SMS</span></li>
+        <li><a href="mailto:bati75pro@gmail.com">bati75pro@gmail.com</a></li>
+        <li>Longueil-Sainte-Marie (60126), Oise</li>
+      </ul>
+    </div>
+    <div>
+      <p class="pied__titre mono">Horaires</p>
+      <ul class="pied__liste">
+        <li>Du lundi au samedi, 8h–19h</li>
+        <li>Urgences : prise en charge selon disponibilité</li>
+        <li><span class="voyant voyant--clair" data-voyant><i></i><span data-voyant-texte>Lun–sam 8h–19h</span></span></li>
+      </ul>
+    </div>
+    <div>
+      <p class="pied__titre mono">Pages</p>
+      <ul class="pied__liste">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="estimation.html">Estimer mon prix</a></li>
+        <li><a href="contact.html">Contact et rendez-vous</a></li>
+        <li><a href="mentions-legales.html">Mentions légales et confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap pied__bas mono">
+    <span>© 2026 Simple Travaux</span>
+    <span>Maquette de démonstration, non indexée. Formulaires et rendez-vous simulés.</span>
+  </div>
+</footer>
+<nav class="barre barre--estim" data-barre aria-label="Actions rapides">
+  <a class="barre__btn barre__btn--tel" href="tel:+33761183322"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4.2-1.9 1.4a12 12 0 0 0 6.2 6.2l1.4-1.9 4.2 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Appeler</span></a>
+  <button class="barre__btn barre__btn--total" type="button" data-recap-ouvrir aria-controls="recap"><span class="mono">Total</span><b data-barre-total>0 €</b><span class="barre__voir">Récap</span></button>
+</nav>
+<div class="vidange" data-vidange aria-hidden="true"><svg class="vidange__vague" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 V60 H0Z"/></svg><div class="vidange__eau"></div></div>
+<div class="curseur" data-curseur aria-hidden="true"><span class="curseur__h"></span><span class="curseur__v"></span><span class="curseur__rond"></span><span class="curseur__coord mono" data-curseur-coord></span><span class="curseur__label mono" data-curseur-label></span></div>
+<canvas class="gl-ondes" data-gl-ondes aria-hidden="true"></canvas>
+<svg class="reseau" data-reseau aria-hidden="true"></svg>
+<script src="assets/vendor/gsap/gsap.min.js" defer></script>
+<script src="assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+<script src="assets/vendor/gsap/SplitText.min.js" defer></script>
+<script src="assets/vendor/gsap/DrawSVGPlugin.min.js" defer></script>
+<script src="assets/vendor/lenis/lenis.min.js" defer></script>
+<script type="module" src="assets/js/main.js?v=1"></script>
+</body>
+</html>
