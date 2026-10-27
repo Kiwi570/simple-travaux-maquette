@@ -33,8 +33,8 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=1">
-<link rel="modulepreload" href="assets/js/main.js?v=1">
+<link rel="stylesheet" href="assets/css/style.css?v=2">
+<link rel="modulepreload" href="assets/js/main.js?v=2">
 </head>
 <body data-page="contact">
 <div class="ouverture" data-ouverture aria-hidden="true">
@@ -152,13 +152,13 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
     <title id="carte-titre">Carte schématique : rayon de 30 km autour de Longueil-Sainte-Marie et communes desservies</title>
     <defs><radialGradient id="zone-fond" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--eau-froide)" stop-opacity=".18"/><stop offset="1" stop-color="var(--eau-froide)" stop-opacity=".02"/></radialGradient></defs>
     <circle class="carte__zone" cx="380" cy="330" r="270" fill="url(#zone-fond)"/>
-    <circle class="carte__anneau" cx="380" cy="330" r="90"/><text class="carte__km" x="447.9" y="262.1">10 km</text><circle class="carte__anneau" cx="380" cy="330" r="180"/><text class="carte__km" x="511.8" y="198.2">20 km</text>
+    <circle class="carte__anneau" cx="380" cy="330" r="90"/><text class="carte__km" x="310.1" y="260.1" text-anchor="end">10 km</text><circle class="carte__anneau" cx="380" cy="330" r="180"/><text class="carte__km" x="246.2" y="196.2" text-anchor="end">20 km</text>
     <path class="carte__oise" d="M475.9 242.1 L453.0 267.0 L428.2 284.9 L406.0 308.8 L393.0 334.7 L388.4 364.5 L361.7 380.5 L310.8 386.4 L263.8 399.4 L225.9 423.2 L198.5 434.2 L167.2 454.1"/>
     <path class="carte__oise-eau" d="M475.9 242.1 L453.0 267.0 L428.2 284.9 L406.0 308.8 L393.0 334.7 L388.4 364.5 L361.7 380.5 L310.8 386.4 L263.8 399.4 L225.9 423.2 L198.5 434.2 L167.2 454.1"/>
     <text class="carte__oise-label" x="405.0284730117493" y="356.5699709999982">L’Oise</text>
     <circle class="carte__rayon" cx="380" cy="330" r="270"/>
     <g class="carte__compas" data-compas><path d="M380 330 L650 330"/><circle cx="650" cy="330" r="5"/></g>
-    <text class="carte__km carte__km--30" x="577.7" y="132.3">30 km</text>
+    <text class="carte__km carte__km--30" x="180.3" y="130.3" text-anchor="end">30 km</text>
     <g class="ville ville--grande" data-ville="Compiègne" data-angle="-40.8" data-km="10">
       <circle cx="450.5" cy="269.1" r="6"/>
       <text x="460.5" y="273.1" text-anchor="start">Compiègne</text>
@@ -225,7 +225,7 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
     </g>
     <g class="ville ville--grande" data-ville="Crépy-en-Valois" data-angle="47.6" data-km="18">
       <circle cx="491.3" cy="451.7" r="6"/>
-      <text x="501.3" y="455.7" text-anchor="start">Crépy-en-Valois</text>
+      <text x="481.3" y="455.7" text-anchor="end">Crépy-en-Valois</text>
     </g>
     <g class="ville ville--centre"><circle cx="380" cy="330" r="9"/><circle class="ville__onde" cx="380" cy="330" r="9"/><text x="394" y="356">Longueil-Sainte-Marie</text></g>
   </svg>
@@ -316,6 +316,6 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
 <script src="assets/vendor/gsap/SplitText.min.js" defer></script>
 <script src="assets/vendor/gsap/DrawSVGPlugin.min.js" defer></script>
 <script src="assets/vendor/lenis/lenis.min.js" defer></script>
-<script type="module" src="assets/js/main.js?v=1"></script>
+<script type="module" src="assets/js/main.js?v=2"></script>
 </body>
 </html>

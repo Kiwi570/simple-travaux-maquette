@@ -1,5 +1,5 @@
 /* Révélations au défilement : titres ligne par ligne, textes, cotes de plan, images. */
-import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=1';
+import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=2';
 
 export function initApparitions(intro) {
   if (!env.anim) {
@@ -36,13 +36,15 @@ export function initApparitions(intro) {
   /* Images révélées comme un tirage, cotes qui se tracent */
   qsa('[data-cotes]').forEach((fig) => {
     const img = fig.querySelector(':scope > img, :scope > picture img, :scope > div > img, :scope > svg.portrait-provisoire');
-    const cotes = fig.querySelectorAll('.cote');
+    // cotes : tracées par une mise à l'échelle (le pointillé de DrawSVG se déforme avec vector-effect)
+    const cotes = [...fig.querySelectorAll('.cote')];
+    const axe = (c) => (/V/.test(c.getAttribute('d') || '') ? 'scaleY' : 'scaleX');
     if (img) gsap.set(img, { clipPath: 'inset(0% 0% 100% 0%)' });
-    if (cotes.length && window.DrawSVGPlugin) gsap.set(cotes, { drawSVG: '0%' });
+    cotes.forEach((c) => gsap.set(c, { [axe(c)]: 0 }));
     const jouer = () => {
       const tl = gsap.timeline();
       if (img) tl.fromTo(img, { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.25, ease: 'expo.inOut' }, 0);
-      if (cotes.length && window.DrawSVGPlugin) tl.fromTo(cotes, { drawSVG: '0%' }, { drawSVG: '100%', duration: 0.9, stagger: 0.15, ease: 'power2.inOut' }, 0.35);
+      cotes.forEach((c, i) => tl.fromTo(c, { [axe(c)]: 0 }, { [axe(c)]: 1, duration: 0.9, ease: 'power2.inOut' }, 0.35 + i * 0.15));
     };
     if (dansIntro(fig)) intro.then(jouer);
     else ScrollTrigger.create({ trigger: fig, start: 'top 82%', once: true, onEnter: jouer });

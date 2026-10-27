@@ -1,7 +1,7 @@
 /* Le réseau : une canalisation de cuivre longe la page, se branche dans chaque
    section par un raccord et une vanne, et l'eau y circule au rythme du défilement. */
-import { env, gsap, ScrollTrigger, html, qs, qsa, damp } from './env.js?v=1';
-import { vitesse } from './defilement.js?v=1';
+import { env, gsap, ScrollTrigger, html, qs, qsa, damp } from './env.js?v=2';
+import { vitesse } from './defilement.js?v=2';
 
 const NS = 'http://www.w3.org/2000/svg';
 const el = (nom, attrs = {}) => { const n = document.createElementNS(NS, nom); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
@@ -10,7 +10,7 @@ export function initReseau() {
   const svg = qs('[data-reseau]');
   if (!svg) return;
   let branches = [];
-  let clip = null, fin = 0, dessine = 0, offset = 0, eau = null;
+  let clip = null, fin = 0, dessine = 0, offset = 0, eau = null, tete = null;
 
   function construire() {
     const W = document.documentElement.clientWidth;
@@ -62,6 +62,16 @@ export function initReseau() {
     g.appendChild(el('rect', { class: 'r-raccord', x: xr - (mobile ? 5 : 8), y: fin - 4, width: mobile ? 10 : 16, height: 10, rx: 2 }));
     svg.appendChild(g);
 
+    // tête de pose : un manchon et une goutte au bout du tuyau en cours de pose
+    tete = null;
+    if (env.anim) {
+      tete = el('g', { class: 'r-tete' });
+      tete.appendChild(el('rect', { class: 'r-raccord', x: xr - (mobile ? 5 : 8), y: -5, width: mobile ? 10 : 16, height: 10, rx: 2 }));
+      const k = mobile ? 0.7 : 1;
+      tete.appendChild(el('path', { class: 'r-goutte', d: `M${xr} ${8 * k} C${xr + 4 * k} ${14 * k} ${xr + 5 * k} ${16 * k} ${xr + 5 * k} ${19 * k} A${5 * k} ${5 * k} 0 0 1 ${xr - 5 * k} ${19 * k} C${xr - 5 * k} ${16 * k} ${xr - 4 * k} ${14 * k} ${xr} ${8 * k} Z` }));
+      svg.appendChild(tete);
+    }
+
     // branches : tracées quand le réseau les atteint
     branches.forEach((b, i) => {
       b.paths = couches.map((c) => groupes[c].querySelector(`[data-branche="${i}"]`));
@@ -90,6 +100,11 @@ export function initReseau() {
     const cible = Math.min(fin, window.scrollY + window.innerHeight * 0.68);
     dessine = Math.max(dessine, damp(dessine, cible, 4.5, dt));
     if (clip) clip.setAttribute('height', String(Math.ceil(dessine + 12)));
+    if (tete) {
+      const cache = dessine >= fin - 8;
+      if (tete.__cache !== cache) { tete.style.display = cache ? 'none' : ''; tete.__cache = cache; }
+      if (!cache) tete.setAttribute('transform', `translate(0 ${Math.round(dessine + 8)})`);
+    }
     branches.forEach((b) => {
       if (!b.fait && dessine >= b.y) {
         b.fait = true;

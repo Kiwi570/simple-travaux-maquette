@@ -1,13 +1,14 @@
 /* Formulaires simulés : demande d'intervention, rendez-vous, message.
    Rien n'est envoyé : une confirmation récapitule la demande. */
-import { env, gsap, qs, qsa } from './env.js?v=1';
-import { SITE } from '../data/site.js?v=1';
-import { euros } from '../data/tarifs.js?v=1';
+import { env, gsap, qs, qsa } from './env.js?v=2';
+import { SITE } from '../data/site.js?v=2';
+import { euros } from '../data/tarifs.js?v=2';
 
 const CRENEAUX = ['8h – 10h', '10h – 12h', '14h – 16h', '16h – 19h'];
 const JOURS_COURTS = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];
 const fmtJour = new Intl.DateTimeFormat('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
 const fmtMois = new Intl.DateTimeFormat('fr-FR', { month: 'long', year: 'numeric' });
+const fmtMoisCourt = new Intl.DateTimeFormat('fr-FR', { month: 'short' });
 
 function joursOuvres(depart, n) {
   const out = [];
@@ -81,13 +82,16 @@ function initCalendrier(form) {
     for (let s = 0; s < 3; s++) {
       for (let j = 0; j < 6; j++) {
         const d = new Date(debut); d.setDate(debut.getDate() + s * 7 + j);
-        const b = bouton('jour', `<small>${JOURS_COURTS[d.getDay()]}</small>${d.getDate()}`, { 'data-jour': fmtJour.format(d), 'aria-label': fmtJour.format(d) });
+        // les en-têtes de colonnes donnent le jour : la case n'affiche que la date (et le mois quand il change)
+        const repere = (s === 0 && j === 0) || d.getDate() === 1 ? `<small>${fmtMoisCourt.format(d)}</small>` : '';
+        const b = bouton('jour', `${repere}${d.getDate()}`, { 'data-jour': fmtJour.format(d), 'aria-label': fmtJour.format(d) });
         if (d < demain) b.disabled = true;
+        if (d.toDateString() === new Date().toDateString()) b.setAttribute('aria-current', 'date');
         grille.appendChild(b);
       }
     }
     prec.disabled = page === 0; suiv.disabled = page >= 2;
-    if (env.anim && gsap) gsap.fromTo(qsa('.jour', grille), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.012 });
+    if (env.anim && gsap) gsap.fromTo(qsa('.jour', grille), { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.012, clearProps: 'opacity,transform' });
   };
   prec.addEventListener('click', () => { page = Math.max(0, page - 1); dessiner(); });
   suiv.addEventListener('click', () => { page = Math.min(2, page + 1); dessiner(); });

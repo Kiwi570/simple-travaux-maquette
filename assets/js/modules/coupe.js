@@ -1,6 +1,6 @@
 /* Héros : la maison en coupe se dessine, les réseaux se remplissent,
    les points d'intervention apparaissent avec leur prix. */
-import { env, gsap, qs, qsa, surVisibilite } from './env.js?v=1';
+import { env, gsap, qs, qsa, surVisibilite } from './env.js?v=2';
 
 export function initCoupe(intro) {
   const svg = qs('[data-coupe-svg]');
@@ -39,7 +39,8 @@ export function initCoupe(intro) {
   const chaud = svg.querySelectorAll('.reseau-chaud path, .reseau-cuivre path');
   const flux = svg.querySelectorAll('.flux');
   const points = svg.querySelectorAll('.coupe__point');
-  const etiquettes = qsa('.coupe__etiquette');
+  const etiquettes = qsa('.coupe__etiquette-in');
+  const calqueEtiquettes = qs('.coupe__etiquettes', planche);
   const photo = qs('.planche__photo', planche);
   const cartouche = qs('.cartouche', planche);
 
@@ -77,7 +78,8 @@ export function initCoupe(intro) {
       [svg.querySelector('.coupe__equipements'), 7],
       [svg.querySelector('.coupe__reseaux'), 10],
       [svg.querySelector('.coupe__points'), 14],
-    ].map(([n, f]) => ({ f, x: gsap.quickTo(n, 'x', { duration: 0.9, ease: 'power3' }), y: gsap.quickTo(n, 'y', { duration: 0.9, ease: 'power3' }) }));
+      [calqueEtiquettes, 13],
+    ].filter(([n]) => n).map(([n, f]) => ({ f, x: gsap.quickTo(n, 'x', { duration: 0.9, ease: 'power3' }), y: gsap.quickTo(n, 'y', { duration: 0.9, ease: 'power3' }) }));
     const pX = photo ? gsap.quickTo(photo, 'x', { duration: 1, ease: 'power3' }) : null;
     const pY = photo ? gsap.quickTo(photo, 'y', { duration: 1, ease: 'power3' }) : null;
     planche.addEventListener('pointermove', (e) => {

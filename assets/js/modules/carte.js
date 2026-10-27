@@ -1,6 +1,6 @@
 /* Zone d'intervention : le compas balaie le rayon de 30 km, les communes s'allument. */
-import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=1';
-import { CENTRE } from '../data/site.js?v=1';
+import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=2';
+import { CENTRE } from '../data/site.js?v=2';
 
 export function initCarte() {
   qsa('[data-carte]').forEach((fig) => {
@@ -13,11 +13,13 @@ export function initCarte() {
     const centre = qs('.ville--centre circle', svg);
     const cx = Number(centre.getAttribute('cx')), cy = Number(centre.getAttribute('cy'));
 
+    const consigne = window.matchMedia && matchMedia('(hover: hover)').matches ? 'Survolez une commune' : 'Touchez une commune';
+    if (info) info.textContent = consigne;
     const activer = (nom, on) => {
       villes.forEach((v) => v.classList.toggle('actif', on && v.dataset.ville === nom));
       btns.forEach((b) => b.classList.toggle('actif', on && b.dataset.villeBtn === nom));
       const v = villes.find((x) => x.dataset.ville === nom);
-      if (info) info.textContent = on && v ? `${nom} · ≈ ${v.dataset.km} km de ${CENTRE.nom} à vol d’oiseau` : 'Survolez une commune';
+      if (info) info.textContent = on && v ? `${nom} · ≈ ${v.dataset.km} km de ${CENTRE.nom} à vol d’oiseau` : consigne;
     };
     villes.forEach((v) => {
       v.addEventListener('pointerenter', () => activer(v.dataset.ville, true));

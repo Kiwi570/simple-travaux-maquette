@@ -1,22 +1,22 @@
 /* Simple Travaux — maquette « Le Réseau » : point d'entrée. */
-import { env, html, gsap, ScrollTrigger, qs, mesurer, policesPretes } from './modules/env.js?v=1';
-import { initDefilement, defilerVers } from './modules/defilement.js?v=1';
-import { ouvrir } from './modules/ouverture.js?v=1';
-import { initTransitions, entree } from './modules/transitions.js?v=1';
-import { initMenu, initCalme, restaurerPosition, initVoyants, initBarre } from './modules/entete.js?v=1';
-import { initCompteurs } from './modules/compteur.js?v=1';
-import { initApparitions } from './modules/apparitions.js?v=1';
-import { initMagnetiques, initInclinaisons, initCurseur } from './modules/interactions.js?v=1';
-import { initReseau } from './modules/reseau.js?v=1';
-import { initCoupe } from './modules/coupe.js?v=1';
-import { initDefile, initGouttes } from './modules/urgence.js?v=1';
-import { initHorizontal } from './modules/horizontal.js?v=1';
-import { initEtapes } from './modules/etapes.js?v=1';
-import { initDemo } from './modules/demo.js?v=1';
-import { initCarte } from './modules/carte.js?v=1';
-import { initEstimateur } from './modules/estimateur.js?v=1';
-import { initFormulaires } from './modules/formulaires.js?v=1';
-import { init404 } from './modules/erreur.js?v=1';
+import { env, html, gsap, ScrollTrigger, qs, mesurer, policesPretes } from './modules/env.js?v=2';
+import { initDefilement, defilerVers } from './modules/defilement.js?v=2';
+import { ouvrir } from './modules/ouverture.js?v=2';
+import { initTransitions, entree } from './modules/transitions.js?v=2';
+import { initMenu, initCalme, restaurerPosition, initVoyants, initBarre } from './modules/entete.js?v=2';
+import { initCompteurs } from './modules/compteur.js?v=2';
+import { initApparitions } from './modules/apparitions.js?v=2';
+import { initMagnetiques, initInclinaisons, initCurseur } from './modules/interactions.js?v=2';
+import { initReseau } from './modules/reseau.js?v=2';
+import { initCoupe } from './modules/coupe.js?v=2';
+import { initDefile, initGouttes } from './modules/urgence.js?v=2';
+import { initHorizontal } from './modules/horizontal.js?v=2';
+import { initEtapes } from './modules/etapes.js?v=2';
+import { initDemo } from './modules/demo.js?v=2';
+import { initCarte } from './modules/carte.js?v=2';
+import { initEstimateur } from './modules/estimateur.js?v=2';
+import { initFormulaires } from './modules/formulaires.js?v=2';
+import { init404 } from './modules/erreur.js?v=2';
 
 async function demarrer() {
   mesurer();
@@ -60,8 +60,8 @@ async function demarrer() {
       const essai = document.createElement('canvas');
       const ok = !!(essai.getContext('webgl2') || essai.getContext('webgl'));
       if (!ok) return;
-      if (qs('[data-gl-flux]')) import('./modules/gl-flux.js?v=1').then((m) => m.initFlux(Promise.resolve())).catch(() => {});
-      if (qs('[data-ripple]') && env.fin) import('./modules/gl-ondes.js?v=1').then((m) => m.initOndes()).catch(() => {});
+      if (qs('[data-gl-flux]')) import('./modules/gl-flux.js?v=2').then((m) => m.initFlux(Promise.resolve())).catch(() => {});
+      if (qs('[data-ripple]') && env.fin) import('./modules/gl-ondes.js?v=2').then((m) => m.initOndes()).catch(() => {});
     });
     // ?piece=… : l'estimateur s'ouvre sur la pièce demandée
     const est = qs('[data-estimateur]');

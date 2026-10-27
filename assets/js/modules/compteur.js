@@ -1,6 +1,6 @@
 /* Compteur d'eau à rouleaux : les chiffres tournent comme sur un compteur réel. */
-import { env, gsap, qsa } from './env.js?v=1';
-import { euros } from '../data/tarifs.js?v=1';
+import { env, gsap, qsa } from './env.js?v=2';
+import { euros } from '../data/tarifs.js?v=2';
 
 const CHIFFRES = 5;
 

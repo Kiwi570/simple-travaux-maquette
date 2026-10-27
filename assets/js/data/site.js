@@ -43,7 +43,7 @@ export const COMMUNES = [
   { nom: 'Chantilly', lat: 49.1947, lon: 2.4711, secteur: 'Creil & Senlis' },
   { nom: 'Clermont', lat: 49.3786, lon: 2.4128, secteur: 'Clermont & Crépy-en-Valois', grande: true },
   { nom: 'Liancourt', lat: 49.3306, lon: 2.4664, secteur: 'Clermont & Crépy-en-Valois' },
-  { nom: 'Crépy-en-Valois', lat: 49.2344, lon: 2.8886, secteur: 'Clermont & Crépy-en-Valois', grande: true },
+  { nom: 'Crépy-en-Valois', lat: 49.2344, lon: 2.8886, secteur: 'Clermont & Crépy-en-Valois', grande: true, etiquette: 'gauche' },
 ];
 /* Tracé schématique de l'Oise, du nord-est au sud-ouest */
 export const OISE = [

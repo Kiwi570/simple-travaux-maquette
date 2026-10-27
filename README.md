@@ -43,6 +43,33 @@ Le site est statique : HTML, CSS et JavaScript, sans étape de construction. Il 
 - **OGL 1.0.11** : licence Unlicense.
 - **Polices :** licence SIL Open Font License.
 
+## Version 2 : corrections issues de l'audit
+
+- **Maison en coupe :**
+  - les étiquettes de prix ne recouvrent plus les repères numérotés ;
+  - au survol, chaque poste affiche trois tarifs réels.
+- **Galerie des pièces :** chaque carte donne un exemple de tarif réel et le nombre de tarifs.
+- **Lisibilité :**
+  - aucun texte sous 12 px ;
+  - le vert de « Compris » est assez contrasté ;
+  - les noms de la carte de zone ne se chevauchent plus ;
+  - la consigne s'adapte au tactile (« Touchez une commune »).
+- **Calendrier :** les jours passés sont visiblement indisponibles, le jour même est repéré, et chaque case n'affiche que la date.
+- **Téléphone :**
+  - le total de l'estimateur reste visible pendant qu'on coche ;
+  - les espaces entre sections sont resserrés ;
+  - le portrait vient après le texte ;
+  - les zones tactiles font au moins 44 px.
+- **Mise en page :**
+  - sur ordinateur, les colonnes courtes accompagnent la lecture (prix, demande, rendez-vous, message, mentions) ;
+  - les cotes de plan sont tracées sans pointillés parasites.
+- **Pages :**
+  - un appel final a été ajouté en fin d'estimateur ;
+  - les mentions légales ont une fiche récapitulative, avec le nombre d'informations à compléter ;
+  - l'emplacement du portrait de Pedro a été redessiné.
+- **Réseau :** une tête de pose (manchon et goutte) marque le bout de la canalisation en cours de pose.
+- **Fluidité :** les animations décoratives en boucle se mettent en pause pendant le défilement et hors écran.
+
 ## Mettre à jour la maquette
 
 - **Données :** les pages sont générées à partir des données (`assets/js/data/tarifs.js`, `assets/js/data/site.js`) par `node tools/build.mjs`.

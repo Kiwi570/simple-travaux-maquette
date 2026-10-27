@@ -1,6 +1,6 @@
 /* Transitions de page « vidange » : l'eau monte, la page change, l'eau s'évacue. */
-import { env, gsap, html, qs } from './env.js?v=1';
-import { defilerVers } from './defilement.js?v=1';
+import { env, gsap, html, qs } from './env.js?v=2';
+import { defilerVers } from './defilement.js?v=2';
 
 /* Chemins comparés sans .html ni index (les adresses en ligne n'ont pas d'extension) */
 export const normaliser = (p) => (p.replace(/\/index(\.html)?$/, '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/');

@@ -1,5 +1,5 @@
 /* Comment ça marche : quatre vannes quart de tour qui s'ouvrent l'une après l'autre. */
-import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=1';
+import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=2';
 
 export function initEtapes() {
   const s = qs('[data-etapes]');

@@ -1,5 +1,5 @@
 /* Les pièces : galerie horizontale épinglée, traversée par la canalisation. */
-import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=1';
+import { env, gsap, ScrollTrigger, qs, qsa, surVisibilite } from './env.js?v=2';
 
 export function initHorizontal() {
   const s = qs('[data-horizontal]');
@@ -70,7 +70,9 @@ export function initHorizontal() {
   poser(fen.clientWidth);
 
   // l'eau circule en continu dans la canalisation
-  gsap.ticker.add((t, dtMs) => { flux -= (Math.min(dtMs, 64) / 1000) * 40; eau.style.strokeDashoffset = flux.toFixed(1); });
+  let visible = false;
+  surVisibilite(s, (v) => { visible = v; });
+  gsap.ticker.add((t, dtMs) => { if (!visible) return; flux -= (Math.min(dtMs, 64) / 1000) * 40; eau.style.strokeDashoffset = flux.toFixed(1); });
 
   // chaque carte se raccorde quand elle entre
   cartes.forEach((c) => {

@@ -1,5 +1,5 @@
 /* Micro-interactions : boutons magnétiques, cartes inclinées, curseur réticule. */
-import { env, gsap, html, qs, qsa, damp } from './env.js?v=1';
+import { env, gsap, html, qs, qsa, damp } from './env.js?v=2';
 
 export function initMagnetiques() {
   if (!env.anim || !env.fin) return;

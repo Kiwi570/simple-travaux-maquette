@@ -217,9 +217,27 @@ const HOTSPOTS = [
   { piece: 'electricite', label: 'Tableau', x: 458, y: 400, dir: 'w' },
   { piece: 'chauffe-eau', label: 'Chauffe-eau', x: 610, y: 376, dir: 'n' },
   { piece: 'cuisine', label: 'Évier', x: 180, y: 456, dir: 'n' },
-  { piece: 'wc', label: 'WC', x: 356, y: 462, dir: 'n' },
+  { piece: 'wc', label: 'WC', x: 356, y: 462, dir: 's' },
   { piece: 'depannage', label: 'Compteur', x: 668, y: 524, dir: 's' },
 ];
+
+const TOUS = new Map(); for (const p of PIECES) for (const g of p.groupes) for (const it of g.items) TOUS.set(it.id, it);
+/* trois tarifs réels par point de la coupe, affichés au survol */
+const FICHES = {
+  baignoire: [['bai-debouchage', 'Débouchage'], ['bai-robinet', 'Robinet ou mitigeur'], ['bai-170', 'Baignoire 170 cm']],
+  douche: [['dou-joints', 'Joints silicone'], ['dou-mitigeur', 'Mitigeur'], ['dou-bac-90', 'Receveur 90 × 90']],
+  lavabo: [['lav-siphon', 'Siphon'], ['lav-robinet', 'Robinet'], ['lav-meuble', 'Meuble vasque']],
+  radiateurs: [['rad-chauffe-mal', 'Radiateur qui chauffe mal'], ['rad-robinet', 'Robinet de radiateur'], ['rad-remplacement', 'Remplacement']],
+  electricite: [['el-prise', 'Prise ou interrupteur'], ['el-panne', 'Recherche de panne'], ['el-tableau', 'Tableau électrique']],
+  'chauffe-eau': [['ce-groupe', 'Groupe de sécurité'], ['ce-100', 'Ballon 100 L'], ['ce-200', 'Ballon 200 L']],
+  cuisine: [['cui-debouchage', 'Débouchage'], ['cui-mitigeur', 'Mitigeur'], ['cui-evier-100', 'Évier 100 cm']],
+  wc: [['wc-debouchage', 'Débouchage'], ['wc-chasse', 'Chasse d’eau'], ['wc-suspendu', 'WC suspendu']],
+  depannage: [['dep-fuite-visible', 'Fuite apparente'], ['dep-vanne', 'Vanne d’arrêt générale'], ['dep-pression', 'Réducteur de pression']],
+};
+const ficheCoupe = (piece) => {
+  const lignes = (FICHES[piece] || []).map(([id, nom]) => { const it = TOUS.get(id); return it && it.prix ? `<span class="coupe__fiche-l"><span>${esc(nom)}</span><b>${esc(euros(it.prix))}</b></span>` : ''; }).join('');
+  return lignes ? `<span class="coupe__fiche">${lignes}<span class="coupe__fiche-pied">Estimer ce poste →</span></span>` : '';
+};
 
 function coupe(root = '') {
   const P = Object.fromEntries(PIECES.map((p) => [p.id, p]));
@@ -292,7 +310,7 @@ function coupe(root = '') {
 
 function etiquettesCoupe(root = '') {
   const P = Object.fromEntries(PIECES.map((p) => [p.id, p]));
-  return HOTSPOTS.map((h) => `<a class="coupe__etiquette dir-${h.dir}" href="${root}estimation.html?piece=${h.piece}" data-etiquette="${h.piece}" style="--x:${(h.x / 7.6).toFixed(2)}%;--y:${(h.y / 6).toFixed(2)}%" tabindex="-1" aria-hidden="true">${esc(h.label)} <b>dès ${esc(euros(prixMin(P[h.piece])))}</b></a>`).join('\n      ');
+  return HOTSPOTS.map((h) => `<a class="coupe__etiquette dir-${h.dir}" href="${root}estimation.html?piece=${h.piece}" data-etiquette="${h.piece}" style="--x:${(h.x / 7.6).toFixed(2)}%;--y:${(h.y / 6).toFixed(2)}%" tabindex="-1" aria-hidden="true"><span class="coupe__etiquette-in"><span class="coupe__etiquette-tete">${esc(h.label)} <b>dès ${esc(euros(prixMin(P[h.piece])))}</b></span>${ficheCoupe(h.piece)}</span></a>`).join('\n      ');
 }
 
 function legendeCoupe(root = '') {
@@ -311,13 +329,13 @@ function carte() {
   const oise = OISE.map(([la, lo], i) => { const [x, y] = pt(la, lo); return `${i ? 'L' : 'M'}${x.toFixed(1)} ${y.toFixed(1)}`; }).join(' ');
   const villes = COMMUNES.map((c) => {
     const [x, y] = pt(c.lat, c.lon); const d = distanceKm(CENTRE, c);
-    const gauche = x < cx - 40;
+    const gauche = x < cx - 40 || c.etiquette === 'gauche';
     return `<g class="ville${c.grande ? ' ville--grande' : ''}" data-ville="${esc(c.nom)}" data-angle="${(Math.atan2(y - cy, x - cx) * 180 / Math.PI).toFixed(1)}" data-km="${d.toFixed(0)}">
       <circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${c.grande ? 6 : 4}"/>
       <text x="${(x + (gauche ? -10 : 10)).toFixed(1)}" y="${(y + 4).toFixed(1)}" text-anchor="${gauche ? 'end' : 'start'}">${esc(c.nom)}</text>
     </g>`;
   }).join('\n    ');
-  const anneaux = [10, 20].map((km) => `<circle class="carte__anneau" cx="${cx}" cy="${cy}" r="${km * k}"/><text class="carte__km" x="${cx + km * k * 0.71 + 4}" y="${cy - km * k * 0.71 - 4}">${km} km</text>`).join('');
+  const anneaux = [10, 20].map((km) => `<circle class="carte__anneau" cx="${cx}" cy="${cy}" r="${km * k}"/><text class="carte__km" x="${cx - km * k * 0.71 - 6}" y="${cy - km * k * 0.71 - 6}" text-anchor="end">${km} km</text>`).join('');
   return `<svg class="carte" viewBox="0 0 760 660" role="img" aria-labelledby="carte-titre" data-carte-svg>
     <title id="carte-titre">Carte schématique : rayon de 30 km autour de Longueil-Sainte-Marie et communes desservies</title>
     <defs><radialGradient id="zone-fond" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="var(--eau-froide)" stop-opacity=".18"/><stop offset="1" stop-color="var(--eau-froide)" stop-opacity=".02"/></radialGradient></defs>
@@ -328,7 +346,7 @@ function carte() {
     <text class="carte__oise-label" x="${pt(49.33, 2.735)[0] + 14}" y="${pt(49.33, 2.735)[1]}">L’Oise</text>
     <circle class="carte__rayon" cx="${cx}" cy="${cy}" r="${r}"/>
     <g class="carte__compas" data-compas><path d="M${cx} ${cy} L${cx + r} ${cy}"/><circle cx="${cx + r}" cy="${cy}" r="5"/></g>
-    <text class="carte__km carte__km--30" x="${cx + r * 0.71 + 6}" y="${cy - r * 0.71 - 6}">30 km</text>
+    <text class="carte__km carte__km--30" x="${cx - r * 0.71 - 8}" y="${cy - r * 0.71 - 8}" text-anchor="end">30 km</text>
     ${villes}
     <g class="ville ville--centre"><circle cx="${cx}" cy="${cy}" r="9"/><circle class="ville__onde" cx="${cx}" cy="${cy}" r="9"/><text x="${cx + 14}" y="${cy + 26}">${CENTRE.nom}</text></g>
   </svg>`;
@@ -347,15 +365,22 @@ const compteur = (valeur, cls = '') => `<div class="compteur ${cls}" data-compte
 </div>`;
 
 /* ---------- ACCUEIL ---------- */
+const EXEMPLES = {
+  wc: ['wc-suspendu', 'WC suspendu posé'], lavabo: ['lav-meuble', 'Meuble vasque posé'], douche: ['dou-bac-90', 'Receveur 90 × 90'],
+  baignoire: ['bai-170', 'Baignoire 170 cm'], cuisine: ['cui-evier-100', 'Évier 100 cm'], 'chauffe-eau': ['ce-groupe', 'Groupe de sécurité'],
+  radiateurs: ['rad-remplacement', 'Radiateur remplacé'], electricite: ['el-tableau', 'Tableau électrique'], depannage: ['dep-fuite-cachee', 'Fuite encastrée'],
+  pmr: ['pmr-douche', 'Douche de plain-pied'],
+};
+const exemple = (p) => { const e = EXEMPLES[p.id]; const it = e && TOUS.get(e[0]); return it && it.prix ? `Ex. ${e[1]} · ${euros(it.prix)}` : `${nbTarifs(p)} tarifs affichés`; };
 function accueil() {
   const P = Object.fromEntries(PIECES.map((p) => [p.id, p]));
   const cartes = PIECES.map((p, i) => `<a class="carte-piece" href="estimation.html?piece=${p.id}" data-ripple data-curseur-texte="Estimer">
         <span class="carte-piece__raccord" aria-hidden="true"></span>
         <span class="carte-piece__img">${img(p.img, '', { sizes: '(max-width: 700px) 70vw, 30vw', cls: 'carte-piece__photo' })}</span>
         <span class="carte-piece__bas">
-          <span class="carte-piece__num mono">${String(i + 1).padStart(2, '0')}</span>
+          <span class="carte-piece__num mono">${String(i + 1).padStart(2, '0')} · ${nbTarifs(p)} tarifs</span>
           <span class="carte-piece__nom">${esc(p.nom)}</span>
-          <span class="carte-piece__info mono">${nbTarifs(p)} tarifs affichés</span>
+          <span class="carte-piece__info mono">${esc(exemple(p))}</span>
           <span class="carte-piece__prix"><span class="mono">dès</span> ${esc(euros(prixMin(p)))}</span>
         </span>
       </a>`).join('\n      ');
@@ -404,7 +429,7 @@ function accueil() {
             <source media="(max-width: 700px)" srcset="assets/img/hero-reseau-mobile-480.webp 480w, assets/img/hero-reseau-mobile-784.webp 784w" sizes="40vw">
             ${img('hero-reseau', 'Mur de salle de bain ouvert sur des canalisations en cuivre et des alimentations bleues et rouges bien alignées', { sizes: '(max-width: 700px) 40vw, 22vw', eager: true })}
           </picture>
-          <span class="planche__photo-legende mono">Relevé · réseau encastré</span>
+          <span class="planche__photo-legende mono">Réseau encastré</span>
         </div>
       </div>
       <figcaption class="cartouche mono">
@@ -495,8 +520,8 @@ function accueil() {
       <a class="btn btn--cuivre" href="estimation.html" data-magnet>Faire mon estimation complète ${ICONES.fleche}</a>
     </div>
     <figure class="prix__visuel" data-cotes>
-      ${img('chauffe-eau', 'Chauffe-eau électrique mural dans une buanderie claire', { sizes: '(max-width: 900px) 100vw, 30vw' })}
-      <svg class="cotes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="cote" d="M-5 0 V100"/><path class="cote" d="M0 105 H100"/></svg>
+      <div class="cotes-cadre">${img('chauffe-eau', 'Chauffe-eau électrique mural dans une buanderie claire', { sizes: '(max-width: 900px) 100vw, 30vw' })}
+      <svg class="cotes" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="cote" d="M-5 0 V100"/><path class="cote" d="M0 104 H100"/></svg></div>
       <figcaption class="mono">Ballon 200 L posé · ${euros(ITEM.get('ce-200').prix)}</figcaption>
     </figure>
   </div>
@@ -505,14 +530,19 @@ function accueil() {
 <section class="pedro" id="pedro" data-section>
   <div class="wrap pedro__grille">
     <figure class="pedro__portrait" data-cotes>
-      <svg class="portrait-provisoire" viewBox="0 0 400 500" aria-hidden="true">
-        <rect x="1" y="1" width="398" height="498" class="pp-cadre"/>
-        <path class="pp-croix" d="M200 0 V500 M0 250 H400"/>
-        <circle class="pp-tete" cx="200" cy="200" r="66"/>
-        <path class="pp-buste" d="M86 470 Q96 330 200 318 Q304 330 314 470"/>
-        <path class="pp-cote" d="M24 40 V460 M18 40 H30 M18 460 H30"/>
+      <svg class="portrait-provisoire" viewBox="0 0 400 460" aria-hidden="true">
+        <defs><pattern id="pp-grille" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="pp-grille"/></pattern></defs>
+        <rect width="400" height="460" fill="url(#pp-grille)"/>
+        <path class="pp-croix" d="M200 24 V436 M24 176 H376"/>
+        <circle class="pp-cible" cx="200" cy="176" r="96"/>
+        <path class="pp-buste" d="M86 436 Q92 312 200 300 Q308 312 314 436 Z"/>
+        <path class="pp-col" d="M168 304 L200 352 L232 304"/>
+        <circle class="pp-tete" cx="200" cy="176" r="62"/>
+        <path class="pp-cote" d="M36 114 V436 M29 114 H43 M29 436 H43 M364 114 V238 M357 114 H371 M357 238 H371"/>
+        <path class="pp-coins" d="M14 40 V14 H40 M360 14 H386 V40 M386 420 V446 H360 M40 446 H14 V420"/>
+        <g class="pp-tampon" transform="rotate(-8 200 392)"><rect x="92" y="364" width="216" height="56" rx="5"/><rect x="99" y="371" width="202" height="42" rx="3" class="pp-tampon__in"/><text x="200" y="398" text-anchor="middle">PHOTO À FOURNIR</text></g>
       </svg>
-      <figcaption class="mono">Portrait de Pedro<br><b>photo à fournir</b></figcaption>
+      <figcaption class="mono">Portrait de Pedro<br><b>emplacement réservé</b></figcaption>
     </figure>
     <div class="pedro__texte">
       ${eyebrow('06', 'Votre artisan')}
@@ -690,7 +720,7 @@ function estimation() {
   </div>
 </section>
 
-<section class="demande" id="demande" data-section data-masque-barre>
+<section class="demande" id="demande" data-section>
   <div class="wrap demande__grille">
     <div class="demande__texte">
       ${eyebrow('04', 'Étape 3 · la demande')}
@@ -698,7 +728,7 @@ function estimation() {
       <p data-apparait>Votre sélection est jointe à la demande. Le tarif est confirmé ensemble avant l’intervention.</p>
       <div class="demande__resume" data-demande-resume><p class="mono">Sélection</p><p data-demande-total>Aucune prestation sélectionnée.</p></div>
     </div>
-    <form class="formulaire" data-form-simule="demande" novalidate>
+    <form class="formulaire" data-form-simule="demande" novalidate data-masque-barre>
       <fieldset class="choix-quand">
         <legend>Quand souhaitez-vous l’intervention&nbsp;?</legend>
         <label class="radio-carte"><input type="radio" name="quand" value="urgent" required><span><b>Urgent</b><em>Pedro vous rappelle au plus vite</em></span></label>
@@ -743,6 +773,21 @@ function estimation() {
       </div>
       <p class="petit" data-apparait>Les travaux supplémentaires sont identifiés avant leur réalisation et soumis à votre validation.</p>
     </div>
+  </div>
+</section>
+
+<section class="appel appel--court sombre" id="appel" data-section data-masque-barre>
+  <div class="appel__fond" aria-hidden="true">${img('plombier-lavabo', '', { sizes: '100vw' })}</div>
+  <div class="wrap appel__in">
+    ${eyebrow('06', 'Un doute sur une ligne', true)}
+    <h2 class="titre-l" data-split>Pedro vous répond avant de valider.</h2>
+    <a class="appel__numero" href="${SITE.telHref}" data-goutte data-magnet><span>${SITE.tel}</span></a>
+    <div class="appel__actions">
+      <a class="btn btn--cuivre" href="${SITE.telHref}" data-magnet>${ICONES.tel}<span>Appeler</span></a>
+      <a class="btn btn--clair" href="${SITE.smsHref}" data-magnet>${ICONES.sms}<span>Envoyer un SMS</span></a>
+      <a class="btn btn--clair" href="contact.html#rendez-vous" data-magnet>${ICONES.cal}<span>Prendre rendez-vous</span></a>
+    </div>
+    <p class="mono appel__horaires">Du lundi au samedi, 8h–19h · <span data-voyant><i></i><span data-voyant-texte></span></span></p>
   </div>
 </section>`;
   return page({
@@ -869,9 +914,10 @@ function contact() {
 /* ---------- MENTIONS ---------- */
 function mentions() {
   const ac = '<span class="a-completer-txt">à compléter</span>';
-  const contenu = `
+  let contenu = `
 <section class="legal" data-section>
-  <div class="wrap legal__in">
+  <div class="wrap legal__grille">
+  <div class="legal__in">
     ${eyebrow('01', 'Informations légales')}
     <h1 class="titre-l">Mentions légales et confidentialité</h1>
     <p class="petit mono">Maquette : les informations absentes du site actuel sont signalées « à compléter ».</p>
@@ -898,7 +944,26 @@ function mentions() {
     <p>Conformément au RGPD, vous disposez d’un droit d’accès, de rectification et de suppression de vos données en écrivant à <a href="mailto:${SITE.email}">${SITE.email}</a>.</p>
     <p>Durée de conservation, base légale du traitement, sous-traitants éventuels et cookies : ${ac}.</p>
   </div>
+  <aside class="legal__fiche" aria-label="Récapitulatif pour la mise en ligne">
+    <svg class="legal__picto" viewBox="0 0 220 170" aria-hidden="true">
+      <path class="lp-grille" d="M0 34H220M0 68H220M0 102H220M0 136H220M44 0V170M88 0V170M132 0V170M176 0V170"/>
+      <path class="lp-cuivre" d="M24 52 H196 M110 52 V150"/>
+      <path class="lp-eau" d="M24 52 H196 M110 52 V150"/>
+      <rect class="lp-raccord" x="12" y="36" width="16" height="32" rx="2"/><rect class="lp-raccord" x="192" y="36" width="16" height="32" rx="2"/>
+      <path class="lp-cote" d="M24 18 H196 M24 12 V24 M196 12 V24"/>
+    </svg>
+    <p class="mono legal__fiche-titre">Planche 00 · Informations légales</p>
+    <p class="legal__compte"><b>__NB_AC__</b> informations à compléter avec Pedro avant la mise en ligne.</p>
+    <ul class="legal__contacts">
+      <li><span class="mono">Téléphone</span><a href="${SITE.telHref}">${SITE.tel}</a></li>
+      <li><span class="mono">E-mail</span><a href="mailto:${SITE.email}">${SITE.email}</a></li>
+      <li><span class="mono">Atelier</span>${SITE.ville} (${SITE.cp})</li>
+    </ul>
+  </aside>
+  </div>
 </section>`;
+  const nbAc = contenu.split(ac).length - 1;
+  contenu = contenu.replace('__NB_AC__', String(nbAc));
   return page({
     id: 'mentions', titre: 'Mentions légales et confidentialité | Simple Travaux',
     description: 'Mentions légales et politique de confidentialité du site Simple Travaux, artisan plombier à Longueil-Sainte-Marie (60).',

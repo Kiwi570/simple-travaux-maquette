@@ -1,5 +1,5 @@
 /* Page 404 : le raccord fuit, la flaque monte. */
-import { env, gsap, qs } from './env.js?v=1';
+import { env, gsap, qs } from './env.js?v=2';
 
 export function init404(intro) {
   const flaque = qs('[data-flaque]');

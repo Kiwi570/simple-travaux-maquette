@@ -1,7 +1,7 @@
 /* Accueil, « Le prix avant les travaux » : le compteur roule jusqu'au tarif choisi. */
-import { env, qs, qsa, surVisibilite } from './env.js?v=1';
-import { compteurDe } from './compteur.js?v=1';
-import { PRESTATIONS } from '../data/tarifs.js?v=1';
+import { env, qs, qsa, surVisibilite } from './env.js?v=2';
+import { compteurDe } from './compteur.js?v=2';
+import { PRESTATIONS } from '../data/tarifs.js?v=2';
 
 export function initDemo() {
   const zone = qs('[data-demo]');
