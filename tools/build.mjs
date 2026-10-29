@@ -3,6 +3,7 @@
 import { writeFileSync, readFileSync } from 'node:fs';
 import { PIECES, prixMin, nbTarifs, euros } from '../assets/js/data/tarifs.js';
 import { SITE, CONDITIONS, COMMUNES, CENTRE, OISE, distanceKm } from '../assets/js/data/site.js';
+import { METIERS, SYMPTOMES, FAMILLES, FAMILLE_DE_GROUPE } from '../assets/js/data/metiers.js';
 
 const V = readFileSync(new URL('./version.txt', import.meta.url), 'utf8').trim();
 const BASE = 'https://simple-travaux-maquette.vercel.app';
@@ -89,6 +90,7 @@ function entete(page, root = '') {
     ${marque(root)}
     <nav class="nav" aria-label="Navigation principale">
       ${lien('index.html', 'Accueil', 'accueil')}
+      ${lien('prestations.html', 'Prestations', 'prestations')}
       ${lien('estimation.html', 'Estimer mon prix', 'estimation')}
       ${lien('contact.html', 'Contact', 'contact')}
     </nav>
@@ -103,8 +105,9 @@ function entete(page, root = '') {
 <div class="menu" id="menu" data-menu-panneau hidden>
   <nav aria-label="Menu mobile">
     <a href="${root}index.html"${page === 'accueil' ? ' aria-current="page"' : ''}><span class="mono">01</span>Accueil</a>
-    <a href="${root}estimation.html"${page === 'estimation' ? ' aria-current="page"' : ''}><span class="mono">02</span>Estimer mon prix</a>
-    <a href="${root}contact.html"${page === 'contact' ? ' aria-current="page"' : ''}><span class="mono">03</span>Contact</a>
+    <a href="${root}prestations.html"${page === 'prestations' ? ' aria-current="page"' : ''}><span class="mono">02</span>Prestations</a>
+    <a href="${root}estimation.html"${page === 'estimation' ? ' aria-current="page"' : ''}><span class="mono">03</span>Estimer mon prix</a>
+    <a href="${root}contact.html"${page === 'contact' ? ' aria-current="page"' : ''}><span class="mono">04</span>Contact</a>
   </nav>
   <a class="menu__tel" href="${SITE.telHref}">${ICONES.tel}${SITE.tel}</a>
   <p class="mono menu__horaires">Du lundi au samedi, 8h–19h</p>
@@ -138,7 +141,7 @@ function barre(page, root = '') {
   }
   return `<nav class="barre" data-barre aria-label="Actions rapides">
   <a class="barre__btn barre__btn--tel" href="${SITE.telHref}">${ICONES.tel}<span>Appeler</span></a>
-  <a class="barre__btn barre__btn--cuivre" href="${root}estimation.html">Estimer mon prix ${ICONES.fleche}</a>
+  <a class="barre__btn barre__btn--cuivre" href="${root}estimation.html${page === 'prestations' ? '#estimateur' : ''}"${page === 'prestations' ? ' data-barre-estim' : ''}><span data-barre-estim-texte>Estimer mon prix</span> ${ICONES.fleche}</a>
 </nav>`;
 }
 
@@ -169,6 +172,7 @@ function pied(root = '') {
       <p class="pied__titre mono">Pages</p>
       <ul class="pied__liste">
         <li><a href="${root}index.html">Accueil</a></li>
+        <li><a href="${root}prestations.html">Prestations et tarifs</a></li>
         <li><a href="${root}estimation.html">Estimer mon prix</a></li>
         <li><a href="${root}contact.html">Contact et rendez-vous</a></li>
         <li><a href="${root}mentions-legales.html">Mentions légales et confidentialité</a></li>
@@ -467,7 +471,7 @@ function accueil() {
     ${eyebrow('03', 'Les pièces')}
     <div class="horizontal__titres">
       <h2 class="titre-l titre-borne" data-split>Choisissez la pièce, le prix suit.</h2>
-      <p class="horizontal__aide mono"><span>${PIECES.length} pièces</span> <span class="horizontal__fleche">Faites défiler ${ICONES.fleche}</span></p>
+      <p class="horizontal__aide mono"><span>${PIECES.length} pièces</span> <span class="horizontal__fleche">Faites défiler ${ICONES.fleche}</span> <a class="horizontal__lien" href="prestations.html">Toutes les prestations ${ICONES.fleche}</a></p>
     </div>
   </div>
   <div class="horizontal__fenetre" data-fenetre>
@@ -798,6 +802,194 @@ function estimation() {
   });
 }
 
+/* ---------- PRESTATIONS ---------- */
+const PICTOS = {
+  fuit: '<path d="M6 11h17a9 9 0 0 1 9 9v5"/><path d="M27 25h10"/><path class="pi-goutte" d="M32 30c0 0-5 5.6-5 8.6a5 5 0 0 0 10 0c0-3-5-8.6-5-8.6z"/>',
+  bouche: '<path d="M5 16h38"/><path d="M9 16v5a15 15 0 0 0 30 0v-5"/><path d="M24 36v8"/><path class="pi-tourbillon" d="M24 28.5a4.5 4.5 0 1 1 4.5-4.5M24 24a1.5 1.5 0 1 0 1.5-1.5"/>',
+  'eau-chaude': '<rect x="14" y="4" width="20" height="34" rx="10"/><path d="M24 38v5M19 44h10"/><path class="pi-thermo" d="M24 13v15"/><circle cx="24" cy="30" r="2.6"/>',
+  'chauffe-mal': '<path d="M9 16v24M17 16v24M25 16v24M33 16v24M41 16v24M5 40h40M7 22h36"/><path class="pi-chaleur" d="M14 10c2-2 0-4 2-6M25 10c2-2 0-4 2-6M36 10c2-2 0-4 2-6"/>',
+  courant: '<circle cx="24" cy="24" r="18"/><path class="pi-eclair" d="M27 11l-9 15h7l-3 11 10-16h-7z"/>',
+  changer: '<path d="M11 21a14 14 0 0 1 24.5-7.5l3 3"/><path d="M39 8v9h-9"/><path d="M37 27a14 14 0 0 1-24.5 7.5l-3-3"/><path d="M9 40v-9h9"/>',
+  adapter: '<circle cx="22" cy="8" r="3.4"/><path d="M22 14v12h11l4.5 11"/><path d="M22 20h10"/><path d="M16.5 22.5A10.5 10.5 0 1 0 31 35"/>',
+};
+const picto = (id) => `<svg class="picto picto--${id}" viewBox="0 0 48 48" aria-hidden="true">${PICTOS[id]}</svg>`;
+
+/* liste plate des prestations, avec la pièce et le groupe */
+const PLAT = []; for (const p of PIECES) for (const g of p.groupes) for (const it of g.items) PLAT.push({ ...it, piece: p.id, pieceNom: p.nom, court: p.court, groupe: g.titre, famille: FAMILLE_DE_GROUPE[g.titre] || 'remplacer' });
+const prixTxt = (it) => (it.prix == null ? 'Sur devis' : euros(it.prix));
+const minDe = (liste) => Math.min(...liste.filter((i) => i.prix != null).map((i) => i.prix));
+const normaliser = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+
+function manometre() {
+  const cx = 70, cy = 70; const graduations = [];
+  for (let v = 0; v <= 70; v += 5) {
+    const a = ((-135 + (v / 70) * 270) * Math.PI) / 180;
+    const r1 = v % 10 === 0 ? 44 : 48, r2 = 53;
+    graduations.push(`<path d="M${(cx + r1 * Math.sin(a)).toFixed(1)} ${(cy - r1 * Math.cos(a)).toFixed(1)} L${(cx + r2 * Math.sin(a)).toFixed(1)} ${(cy - r2 * Math.cos(a)).toFixed(1)}"${v % 10 === 0 ? ' class="mano__majeure"' : ''}/>`);
+    if (v % 10 === 0) { const rt = 35; graduations.push(`<text x="${(cx + rt * Math.sin(a)).toFixed(1)}" y="${(cy - rt * Math.cos(a) + 3.5).toFixed(1)}" text-anchor="middle">${v}</text>`); }
+  }
+  return `<svg class="mano" viewBox="0 0 140 150" aria-hidden="true">
+    <path class="mano__tige" d="M62 132 H78 V150 H62 Z"/>
+    <circle class="mano__bague" cx="70" cy="70" r="66"/>
+    <circle class="mano__cadran" cx="70" cy="70" r="58"/>
+    <path class="mano__zone" d="M${(cx + 53 * Math.sin((-135 * Math.PI) / 180)).toFixed(1)} ${(cy - 53 * Math.cos((-135 * Math.PI) / 180)).toFixed(1)} A53 53 0 1 1 ${(cx + 53 * Math.sin((135 * Math.PI) / 180)).toFixed(1)} ${(cy - 53 * Math.cos((135 * Math.PI) / 180)).toFixed(1)}"/>
+    <g class="mano__graduations">${graduations.join('')}</g>
+    <text class="mano__unite" x="70" y="117" text-anchor="middle">TARIFS</text>
+    <g class="mano__aiguille" data-mano-aiguille><path d="M70 78 L66.5 70 L70 22 L73.5 70 Z"/><circle cx="70" cy="70" r="6.5"/></g>
+    <circle class="mano__verre" cx="70" cy="70" r="58"/>
+  </svg>`;
+}
+
+function prestations() {
+  const P = Object.fromEntries(PIECES.map((p) => [p.id, p]));
+  const metiers = METIERS.map((m) => {
+    const items = PLAT.filter((it) => m.pieces.includes(it.piece));
+    return { ...m, items, n: items.filter((i) => i.prix != null).length, min: minDe(items) };
+  });
+
+  const piquages = metiers.map((m, i) => `<button class="piquage" type="button" role="tab" id="pq-${m.id}" aria-controls="fiche-${m.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-metier="${m.id}" data-n="${m.n}" style="--i:${i}">
+          <span class="piquage__tube" aria-hidden="true"><i></i></span>
+          <span class="piquage__vanne" aria-hidden="true"><span class="piquage__poignee"></span></span>
+          <span class="piquage__txt"><span class="mono piquage__num">${String(i + 1).padStart(2, '0')}</span><b class="piquage__nom">${esc(m.court)}</b><span class="mono piquage__info">${m.n} tarifs · dès ${esc(euros(m.min))}</span></span>
+        </button>`).join('\n        ');
+
+  const fiches = metiers.map((m, i) => {
+    const vedettes = m.vedettes.map((id) => PLAT.find((x) => x.id === id)).filter(Boolean)
+      .map((it) => `<li><span>${esc(it.nom)}${m.pieces.length > 1 ? ` <em class="mono">${esc(it.court)}</em>` : ''}</span><i aria-hidden="true"></i><b class="mono">${esc(prixTxt(it))}</b></li>`).join('');
+    const pieces = m.pieces.length > 1 ? `<ul class="fiche__pieces">${m.pieces.map((pid) => `<li><a class="puce" href="estimation.html?piece=${pid}">${esc(P[pid].court)}</a></li>`).join('')}</ul>` : '';
+    return `<article class="fiche" id="fiche-${m.id}" role="tabpanel" aria-labelledby="pq-${m.id}" data-fiche="${m.id}"${i ? ' hidden' : ''}>
+        <figure class="fiche__visuel" data-ripple>${img(m.img, m.alt, { sizes: '(max-width: 900px) 100vw, 46vw', eager: i === 0 })}<figcaption class="mono">Métier ${String(i + 1).padStart(2, '0')} / 06</figcaption></figure>
+        <div class="fiche__texte">
+          <p class="mono fiche__num">${m.n} tarifs TTC${m.items.some((x) => x.prix == null) ? ' · 1 sur devis' : ''}</p>
+          <h2 class="titre-l fiche__titre">${esc(m.nom)}</h2>
+          <p class="fiche__intro">${esc(m.intro)}</p>
+          <div class="fiche__prix"><span class="mono">Dès</span>${compteur(m.min, 'compteur--fiche')}</div>
+          <ul class="fiche__vedettes">${vedettes}</ul>
+          ${pieces}
+          <div class="fiche__actions"><a class="btn btn--cuivre" href="#cat-${m.id}" data-ouvrir-famille="${m.id}" data-magnet>Voir les ${m.n} tarifs ${ICONES.fleche}</a><a class="btn btn--ligne" href="estimation.html?piece=${m.pieces[0]}" data-magnet>Estimer mon prix</a></div>
+        </div>
+      </article>`;
+  }).join('\n      ');
+
+  const symptomes = SYMPTOMES.map((s, i) => {
+    const n = PLAT.filter(s.test).length;
+    const m = IMG[s.img]; const srcset = m.sizes.map((w) => `assets/img/${s.img}-${w}.webp ${w}w`).join(', ');
+    return `<button class="symptome" type="button" aria-pressed="${i === 0}" data-symptome="${s.id}" data-src="assets/img/${s.img}-${m.sizes[Math.min(1, m.sizes.length - 1)]}.webp" data-srcset="${srcset}" data-alt="${esc(s.alt)}" style="--i:${i}">${picto(s.id)}<span class="symptome__nom">${esc(s.nom)}</span><span class="mono symptome__n">${n} tarifs</span></button>`;
+  }).join('\n          ');
+
+  const ligne = (it) => `<li class="cat-ligne" data-cat="${it.famille}" data-texte="${esc(normaliser(`${it.nom} ${it.desc} ${it.pieceNom} ${it.groupe}`))}">
+              <span class="cat-ligne__txt"><b>${esc(it.nom)}</b><span>${esc(it.desc)}</span></span>
+              <span class="cat-ligne__type mono">${esc(it.groupe)}</span>
+              <span class="cat-ligne__prix mono">${esc(prixTxt(it))}</span>
+              ${it.prix == null ? `<a class="cat-ajout cat-ajout--devis" href="${SITE.telHref}" aria-label="Appeler Pedro pour un devis : ${esc(it.nom)}">${ICONES.tel}</a>` : `<button class="cat-ajout" type="button" data-ajout="${it.id}" aria-pressed="false"><span class="visuellement-cache">Ajouter ${esc(it.nom)} à mon estimation</span><span class="cat-ajout__ico" aria-hidden="true"></span></button>`}
+            </li>`;
+  const familles = metiers.map((m, i) => {
+    const corps = m.pieces.length > 1
+      ? m.pieces.map((pid) => `<div class="famille__piece"><div class="famille__sous"><h4 class="mono">${esc(P[pid].court)}</h4><p>${esc(P[pid].intro)}</p></div><ul class="cat-lignes">${m.items.filter((x) => x.piece === pid).map(ligne).join('')}</ul></div>`).join('')
+      : `<ul class="cat-lignes">${m.items.map(ligne).join('')}</ul>`;
+    return `<section class="famille" id="cat-${m.id}" data-famille="${m.id}" aria-labelledby="cat-titre-${m.id}">
+          <header class="famille__tete">
+            <figure class="famille__img">${img(m.pieces.length > 1 ? 'douche-cabine' : (m.id === 'depannage' ? 'plombier-sous-evier' : m.id === 'chauffe-eau' ? 'chauffe-eau' : m.id === 'chauffage' ? 'piece-radiateur' : m.id === 'electricite' ? 'piece-electricite' : 'pmr'), '', { sizes: '(max-width: 700px) 40vw, 200px' })}</figure>
+            <div class="famille__titres"><p class="mono famille__num">${String(i + 1).padStart(2, '0')} · ${m.n} tarifs · dès ${esc(euros(m.min))}</p><h3 class="titre-m" id="cat-titre-${m.id}">${esc(m.nom)}</h3></div>
+          </header>
+          <div class="famille__corps">${corps}</div>
+          <button class="btn btn--texte famille__plus" type="button" data-famille-plus hidden>Voir toutes les prestations</button>
+        </section>`;
+  }).join('\n        ');
+  const parFamille = Object.fromEntries(FAMILLES.map((f) => [f.id, PLAT.filter((x) => x.famille === f.id).length]));
+
+  const contenu = `
+<section class="pr-hero" id="collecteur" data-section>
+  <div class="wrap">
+    <div class="pr-hero__haut">
+      <div class="pr-hero__tete">
+        ${eyebrow('01', `6 métiers · ${TOTAL} tarifs TTC`)}
+        <h1 class="titre-xl" data-split>Tout ce que Pedro répare, <em>pose et transforme.</em></h1>
+        <p class="lead" data-apparait>Tournez une vanne : l’eau file vers le métier, ses prestations et leurs prix s’affichent.</p>
+      </div>
+      <div class="collecteur__mano" data-collecteur-mano><p class="mono collecteur__lecture" aria-live="polite"><b data-mano-valeur>${metiers[0].n}</b> tarifs ouverts</p><div class="mano__boite">${manometre()}</div></div>
+    </div>
+    <div class="collecteur" data-collecteur>
+      <div class="collecteur__barre" data-raccord aria-hidden="true"><span class="collecteur__eau" data-collecteur-eau></span><span class="collecteur__bouchon"></span></div>
+      <div class="collecteur__piquages" role="tablist" aria-label="Choisir un métier">
+        ${piquages}
+      </div>
+    </div>
+    <div class="fiches" data-fiches>
+      ${fiches}
+    </div>
+  </div>
+</section>
+
+<section class="diag sombre" id="diagnostic" data-section>
+  <div class="wrap diag__grille">
+    <div class="diag__tete">
+      ${eyebrow('02', 'Diagnostic', true)}
+      <h2 class="titre-l" data-split>Qu’est-ce qui ne va pas ?</h2>
+      <p class="diag__lead" data-apparait>Choisissez ce que vous constatez : les interventions qui y répondent s’allument, avec leur tarif.</p>
+      <div class="symptomes" role="group" aria-label="Ce que vous constatez">
+          ${symptomes}
+      </div>
+    </div>
+    <div class="diag__resultat">
+      <figure class="diag__visuel" data-diag-visuel>${img(SYMPTOMES[0].img, SYMPTOMES[0].alt, { sizes: '(max-width: 900px) 100vw, 40vw' })}<span class="diag__tampon mono" data-diag-tampon>${esc(SYMPTOMES[0].nom)}</span></figure>
+      <div class="diag__panneau">
+        <p class="diag__resume" data-diag-resume aria-live="polite"></p>
+        <ul class="diag__liste" data-diag-liste></ul>
+        <div class="diag__actions">
+          <button class="btn btn--clair" type="button" data-diag-plus hidden>Tout voir</button>
+          <a class="btn btn--cuivre" href="${SITE.telHref}" data-magnet>${ICONES.tel}<span>Urgence : ${SITE.tel}</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="catalogue" data-section>
+  <div class="wrap">
+    <div class="cat__tete">
+      ${eyebrow('03', 'Catalogue')}
+      <h2 class="titre-l" data-split>${TOTAL} tarifs, rangés par métier.</h2>
+      <p class="lead" data-apparait>Les prix sont TTC, pour une intervention standard. Ajoutez une ligne : elle rejoint votre estimation.</p>
+    </div>
+    <div class="cat__filtres" data-cat-filtres>
+      <div class="cat__vannes" role="group" aria-label="Type d’intervention">
+        ${FAMILLES.map((f) => `<button class="cat-vanne" type="button" aria-pressed="true" data-cat-filtre="${f.id}"><span class="cat-vanne__corps" aria-hidden="true"><i></i></span><span>${esc(f.nom)}</span><span class="mono cat-vanne__n">${parFamille[f.id]}</span></button>`).join('\n        ')}
+      </div>
+      <label class="cat__recherche"><span class="visuellement-cache">Rechercher une prestation</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><input type="search" placeholder="Mitigeur, fuite, ballon…" autocomplete="off" data-cat-recherche></label>
+      <p class="mono cat__compte" data-cat-compte aria-live="polite">${PLAT.length} prestations · ${PLAT.filter((x) => x.prix == null).length} sur devis</p>
+    </div>
+    <div class="cat__familles">
+        ${familles}
+    </div>
+    <p class="cat__vide" data-cat-vide hidden>Rien ne correspond à cette recherche. Pedro vous dit franchement s’il peut s’en charger : <a href="${SITE.telHref}">${SITE.tel}</a>.</p>
+  </div>
+</section>
+
+<section class="appel appel--court sombre" id="appel" data-section data-masque-barre>
+  <div class="appel__fond" aria-hidden="true">${img('plombier-lavabo', '', { sizes: '100vw' })}</div>
+  <div class="wrap appel__in">
+    ${eyebrow('04', 'Hors catalogue', true)}
+    <h2 class="titre-l" data-split>Une intervention qui n’est pas listée ? Demandez à Pedro.</h2>
+    <a class="appel__numero" href="${SITE.telHref}" data-goutte data-magnet><span>${SITE.tel}</span></a>
+    <div class="appel__actions">
+      <a class="btn btn--cuivre" href="${SITE.telHref}" data-magnet>${ICONES.tel}<span>Appeler</span></a>
+      <a class="btn btn--clair" href="${SITE.smsHref}" data-magnet>${ICONES.sms}<span>Envoyer un SMS</span></a>
+      <a class="btn btn--clair" href="estimation.html" data-magnet>Estimer en ligne</a>
+    </div>
+    <p class="mono appel__horaires">Du lundi au samedi, 8h–19h · <span data-voyant><i></i><span data-voyant-texte></span></span></p>
+  </div>
+</section>
+
+<a class="panier" href="estimation.html#estimateur" data-panier hidden><span class="panier__goutte" aria-hidden="true"></span><span class="panier__txt"><span class="mono">Mon estimation</span><b data-panier-total>0 €</b></span><span class="panier__n" data-panier-n>0</span>${ICONES.fleche}</a>`;
+  return page({
+    id: 'prestations',
+    titre: 'Prestations : plomberie, chauffage, électricité et tarifs | Simple Travaux (60)',
+    description: `Dépannage, sanitaires, chauffe-eau, chauffage, électricité et salle de bain PMR : ${TOTAL} tarifs TTC, un diagnostic par symptôme et le catalogue complet.`,
+    og: 'og-prestations', chemin: '/prestations', contenu,
+  });
+}
+
 /* ---------- CONTACT ---------- */
 function contact() {
   const contenu = `
@@ -992,6 +1184,7 @@ function erreur() {
 const out = new URL('../', import.meta.url);
 writeFileSync(new URL('index.html', out), accueil());
 writeFileSync(new URL('estimation.html', out), estimation());
+writeFileSync(new URL('prestations.html', out), prestations());
 writeFileSync(new URL('contact.html', out), contact());
 writeFileSync(new URL('mentions-legales.html', out), mentions());
 writeFileSync(new URL('404.html', out), erreur());

@@ -1,5 +1,5 @@
 /* Révélations au défilement : titres ligne par ligne, textes, cotes de plan, images. */
-import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=2';
+import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=3';
 
 export function initApparitions(intro) {
   if (!env.anim) {

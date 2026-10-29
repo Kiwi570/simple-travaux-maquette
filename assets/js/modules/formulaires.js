@@ -1,8 +1,8 @@
 /* Formulaires simulés : demande d'intervention, rendez-vous, message.
    Rien n'est envoyé : une confirmation récapitule la demande. */
-import { env, gsap, qs, qsa } from './env.js?v=2';
-import { SITE } from '../data/site.js?v=2';
-import { euros } from '../data/tarifs.js?v=2';
+import { env, gsap, qs, qsa } from './env.js?v=3';
+import { SITE } from '../data/site.js?v=3';
+import { euros } from '../data/tarifs.js?v=3';
 
 const CRENEAUX = ['8h – 10h', '10h – 12h', '14h – 16h', '16h – 19h'];
 const JOURS_COURTS = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];

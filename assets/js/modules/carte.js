@@ -1,6 +1,6 @@
 /* Zone d'intervention : le compas balaie le rayon de 30 km, les communes s'allument. */
-import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=2';
-import { CENTRE } from '../data/site.js?v=2';
+import { env, gsap, ScrollTrigger, qs, qsa } from './env.js?v=3';
+import { CENTRE } from '../data/site.js?v=3';
 
 export function initCarte() {
   qsa('[data-carte]').forEach((fig) => {

@@ -1,6 +1,6 @@
 /* Urgence : bandeau qui défile avec le défilement, gouttes qui tombent du raccord. */
-import { env, gsap, qs, qsa, surVisibilite } from './env.js?v=2';
-import { vitesse } from './defilement.js?v=2';
+import { env, gsap, qs, qsa, surVisibilite } from './env.js?v=3';
+import { vitesse } from './defilement.js?v=3';
 
 export function initDefile() {
   const piste = qs('[data-defile]');

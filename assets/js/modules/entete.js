@@ -1,7 +1,7 @@
 /* En-tête : menu mobile, mode calme, voyants d'ouverture, barre fixe. */
-import { env, html, qs, qsa, gsap } from './env.js?v=2';
-import { bloquer, lenis } from './defilement.js?v=2';
-import { SITE } from '../data/site.js?v=2';
+import { env, html, qs, qsa, gsap } from './env.js?v=3';
+import { bloquer, lenis } from './defilement.js?v=3';
+import { SITE } from '../data/site.js?v=3';
 
 export function initMenu() {
   const btn = qs('[data-menu]');

@@ -1,7 +1,7 @@
 /* Le réseau : une canalisation de cuivre longe la page, se branche dans chaque
    section par un raccord et une vanne, et l'eau y circule au rythme du défilement. */
-import { env, gsap, ScrollTrigger, html, qs, qsa, damp } from './env.js?v=2';
-import { vitesse } from './defilement.js?v=2';
+import { env, gsap, ScrollTrigger, html, qs, qsa, damp } from './env.js?v=3';
+import { vitesse } from './defilement.js?v=3';
 
 const NS = 'http://www.w3.org/2000/svg';
 const el = (nom, attrs = {}) => { const n = document.createElementNS(NS, nom); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };

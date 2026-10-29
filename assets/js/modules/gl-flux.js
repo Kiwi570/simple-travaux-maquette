@@ -4,7 +4,7 @@ import { Renderer } from '../../vendor/ogl/core/Renderer.js';
 import { Program } from '../../vendor/ogl/core/Program.js';
 import { Mesh } from '../../vendor/ogl/core/Mesh.js';
 import { Triangle } from '../../vendor/ogl/extras/Triangle.js';
-import { env, gsap, qs, surVisibilite, damp } from './env.js?v=2';
+import { env, gsap, qs, surVisibilite, damp } from './env.js?v=3';
 
 const vertex = /* glsl */ `
 attribute vec2 uv;

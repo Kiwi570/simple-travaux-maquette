@@ -1,5 +1,5 @@
 /* Ouverture orchestrée : le tuyau trace le nom, l'eau s'y écoule, le plan s'ouvre. */
-import { env, gsap, html, qs } from './env.js?v=2';
+import { env, gsap, html, qs } from './env.js?v=3';
 
 export function ouvrir() {
   const o = qs('[data-ouverture]');

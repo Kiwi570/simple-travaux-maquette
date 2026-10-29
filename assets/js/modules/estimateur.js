@@ -1,8 +1,8 @@
 /* Estimateur : pièce → prestations → total en direct sur le compteur d'eau. */
-import { env, gsap, html, qs, qsa } from './env.js?v=2';
-import { PIECES, PRESTATIONS, euros } from '../data/tarifs.js?v=2';
-import { compteurDe } from './compteur.js?v=2';
-import { defilerVers, bloquer } from './defilement.js?v=2';
+import { env, gsap, html, qs, qsa } from './env.js?v=3';
+import { PIECES, PRESTATIONS, euros } from '../data/tarifs.js?v=3';
+import { compteurDe } from './compteur.js?v=3';
+import { defilerVers, bloquer } from './defilement.js?v=3';
 
 const CLE = 'st-estimation';
 

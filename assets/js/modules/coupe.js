@@ -1,6 +1,6 @@
 /* Héros : la maison en coupe se dessine, les réseaux se remplissent,
    les points d'intervention apparaissent avec leur prix. */
-import { env, gsap, qs, qsa, surVisibilite } from './env.js?v=2';
+import { env, gsap, qs, qsa, surVisibilite } from './env.js?v=3';
 
 export function initCoupe(intro) {
   const svg = qs('[data-coupe-svg]');

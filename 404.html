@@ -33,8 +33,8 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
 <link rel="preload" href="/assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/style.css?v=2">
-<link rel="modulepreload" href="/assets/js/main.js?v=2">
+<link rel="stylesheet" href="/assets/css/style.css?v=3">
+<link rel="modulepreload" href="/assets/js/main.js?v=3">
 </head>
 <body data-page="e404">
 <div class="ouverture" data-ouverture aria-hidden="true">
@@ -58,6 +58,7 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
 </a>
     <nav class="nav" aria-label="Navigation principale">
       <a class="nav__lien" href="/index.html"><span>Accueil</span></a>
+      <a class="nav__lien" href="/prestations.html"><span>Prestations</span></a>
       <a class="nav__lien" href="/estimation.html"><span>Estimer mon prix</span></a>
       <a class="nav__lien" href="/contact.html"><span>Contact</span></a>
     </nav>
@@ -72,8 +73,9 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
 <div class="menu" id="menu" data-menu-panneau hidden>
   <nav aria-label="Menu mobile">
     <a href="/index.html"><span class="mono">01</span>Accueil</a>
-    <a href="/estimation.html"><span class="mono">02</span>Estimer mon prix</a>
-    <a href="/contact.html"><span class="mono">03</span>Contact</a>
+    <a href="/prestations.html"><span class="mono">02</span>Prestations</a>
+    <a href="/estimation.html"><span class="mono">03</span>Estimer mon prix</a>
+    <a href="/contact.html"><span class="mono">04</span>Contact</a>
   </nav>
   <a class="menu__tel" href="tel:+33761183322"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4.2-1.9 1.4a12 12 0 0 0 6.2 6.2l1.4-1.9 4.2 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>07 61 18 33 22</a>
   <p class="mono menu__horaires">Du lundi au samedi, 8h–19h</p>
@@ -121,6 +123,7 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
       <p class="pied__titre mono">Pages</p>
       <ul class="pied__liste">
         <li><a href="/index.html">Accueil</a></li>
+        <li><a href="/prestations.html">Prestations et tarifs</a></li>
         <li><a href="/estimation.html">Estimer mon prix</a></li>
         <li><a href="/contact.html">Contact et rendez-vous</a></li>
         <li><a href="/mentions-legales.html">Mentions légales et confidentialité</a></li>
@@ -134,7 +137,7 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
 </footer>
 <nav class="barre" data-barre aria-label="Actions rapides">
   <a class="barre__btn barre__btn--tel" href="tel:+33761183322"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4.2-1.9 1.4a12 12 0 0 0 6.2 6.2l1.4-1.9 4.2 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><span>Appeler</span></a>
-  <a class="barre__btn barre__btn--cuivre" href="/estimation.html">Estimer mon prix <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  <a class="barre__btn barre__btn--cuivre" href="/estimation.html"><span data-barre-estim-texte>Estimer mon prix</span> <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </nav>
 <div class="vidange" data-vidange aria-hidden="true"><svg class="vidange__vague" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 V60 H0Z"/></svg><div class="vidange__eau"></div></div>
 <div class="curseur" data-curseur aria-hidden="true"><span class="curseur__h"></span><span class="curseur__v"></span><span class="curseur__rond"></span><span class="curseur__coord mono" data-curseur-coord></span><span class="curseur__label mono" data-curseur-label></span></div>
@@ -145,6 +148,6 @@ setTimeout(function(){h.classList.remove('charge')},2500);})(document);
 <script src="/assets/vendor/gsap/SplitText.min.js" defer></script>
 <script src="/assets/vendor/gsap/DrawSVGPlugin.min.js" defer></script>
 <script src="/assets/vendor/lenis/lenis.min.js" defer></script>
-<script type="module" src="/assets/js/main.js?v=2"></script>
+<script type="module" src="/assets/js/main.js?v=3"></script>
 </body>
 </html>

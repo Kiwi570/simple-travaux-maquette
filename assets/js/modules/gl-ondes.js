@@ -5,7 +5,7 @@ import { Program } from '../../vendor/ogl/core/Program.js';
 import { Mesh } from '../../vendor/ogl/core/Mesh.js';
 import { Texture } from '../../vendor/ogl/core/Texture.js';
 import { Triangle } from '../../vendor/ogl/extras/Triangle.js';
-import { env, gsap, qs, qsa, damp } from './env.js?v=2';
+import { env, gsap, qs, qsa, damp } from './env.js?v=3';
 
 const vertex = `
 attribute vec2 uv;

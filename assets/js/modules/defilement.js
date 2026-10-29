@@ -1,6 +1,6 @@
 /* Défilement fluide (Lenis) synchronisé avec ScrollTrigger.
    Le défilement natif reste la référence : Lenis lisse seulement la molette. */
-import { env, gsap, ScrollTrigger, html } from './env.js?v=2';
+import { env, gsap, ScrollTrigger, html } from './env.js?v=3';
 
 export let lenis = null;
 

@@ -9,6 +9,7 @@ Le site est statique : HTML, CSS et JavaScript, sans étape de construction. Il 
 | Adresse | Contenu |
 | --- | --- |
 | `/` | Accueil : maison en coupe, urgence, galerie des pièces, étapes, prix, Pedro, zone de 30 km, salle de bain PMR, appel |
+| `/prestations` | Prestations : le collecteur (une vanne par métier, manomètre), le diagnostic par symptôme, le catalogue des 101 prestations avec filtres, recherche et ajout direct à l'estimation |
 | `/estimation` | Estimateur : 10 pièces, 100 tarifs TTC repris du site actuel, total en direct, demande d'intervention simulée |
 | `/contact` | Numéro, rendez-vous simulé, zone d'intervention, formulaire de message simulé |
 | `/mentions-legales` | Mentions légales et confidentialité, avec les informations manquantes marquées « à compléter » |
@@ -42,6 +43,23 @@ Le site est statique : HTML, CSS et JavaScript, sans étape de construction. Il 
 - **Lenis 1.3.27** : licence MIT.
 - **OGL 1.0.11** : licence Unlicense.
 - **Polices :** licence SIL Open Font License.
+
+## Version 3 : page Prestations
+
+- **Le collecteur :**
+  - une rampe de cuivre et six vannes quart de tour, une par métier : Dépannage, Sanitaires, Chauffe-eau, Chauffage, Électricité, PMR ;
+  - tourner une vanne fait jaillir l'eau, remplit la rampe jusqu'au métier, fait bondir l'aiguille du manomètre (nombre de tarifs) et ouvre la fiche du métier (photo, prix « dès » sur le compteur, quatre tarifs phares) ;
+  - sur téléphone, la rampe devient une colonne montante ;
+  - au clavier, les flèches passent d'une vanne à l'autre.
+- **Le diagnostic :**
+  - sept symptômes à pictogrammes animés ;
+  - chaque symptôme affiche les vraies prestations concernées, triées par prix, avec la fourchette TTC.
+- **Le catalogue :**
+  - les 101 prestations par métier (100 tarifs et 1 sur devis), avec des vannes de filtre (Dépanner, Remplacer & installer, Transformer & adapter) et une recherche sans accents ;
+  - le bouton « + » ajoute une ligne à l'estimation, partagée avec l'estimateur (même enregistrement dans le navigateur) ;
+  - une pastille, ou la barre sur téléphone, affiche le total en direct.
+- **Données :** les métiers, symptômes et familles sont dans `assets/js/data/metiers.js`, et tous les prix viennent de `tarifs.js`.
+- **Liens :** la page est ajoutée au menu, au pied de page et à la galerie de l'accueil (« Toutes les prestations »). Elle a sa propre image de partage, `og/og-prestations.jpg`.
 
 ## Version 2 : corrections issues de l'audit
 

@@ -1,5 +1,5 @@
 /* Les pièces : galerie horizontale épinglée, traversée par la canalisation. */
-import { env, gsap, ScrollTrigger, qs, qsa, surVisibilite } from './env.js?v=2';
+import { env, gsap, ScrollTrigger, qs, qsa, surVisibilite } from './env.js?v=3';
 
 export function initHorizontal() {
   const s = qs('[data-horizontal]');
